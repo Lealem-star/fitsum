@@ -1,34 +1,37 @@
 const multer = require('multer');
-const path = require('path');
-const fs = require('fs');
+const cloudinary = require('cloudinary').v2;
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
 
-// Create uploads directories if they don't exist
-const imagesDir = path.join(__dirname, '../uploads/images');
-const videosDir = path.join(__dirname, '../uploads/videos');
-if (!fs.existsSync(imagesDir)) {
-  fs.mkdirSync(imagesDir, { recursive: true });
-}
-if (!fs.existsSync(videosDir)) {
-  fs.mkdirSync(videosDir, { recursive: true });
-}
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+});
 
-// Configure storage
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    // Determine destination based on file type
-    if (file.fieldname === 'video') {
-      cb(null, videosDir);
-    } else {
-      cb(null, imagesDir);
-    }
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: (req, file) => {
+      if (file.fieldname === 'video') {
+        return 'uploads/videos';
+      } else if (file.fieldname === 'image') {
+        return 'uploads/images';
+      }
+      return 'uploads/others'; // Default folder
+    },
+    public_id: (req, file) => {
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+      const ext = path.extname(file.originalname);
+      const name = path.basename(file.originalname, ext).replace(/\s+/g, '-');
+      return name + '-' + uniqueSuffix;
+    },
+    resource_type: (req, file) => {
+      if (file.fieldname === 'video') {
+        return 'video';
+      }
+      return 'image';
+    },
   },
-  filename: function (req, file, cb) {
-    // Generate unique filename with timestamp
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    const ext = path.extname(file.originalname);
-    const name = path.basename(file.originalname, ext).replace(/\s+/g, '-');
-    cb(null, name + '-' + uniqueSuffix + ext);
-  }
 });
 
 // File filter - images or videos based on field name
