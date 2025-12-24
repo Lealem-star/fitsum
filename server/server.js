@@ -38,6 +38,11 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads'), {
 // Routes
 
 app.use('/api', routes);
+
+// Basic route for the root path
+app.get('/', (req, res) => {
+  res.send('Backend is running!');
+});
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/subscribers', require('./routes/subscribers'));
 app.use('/api/header-poster', require('./routes/headerPoster'));
