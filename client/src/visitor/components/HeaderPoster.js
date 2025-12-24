@@ -2,6 +2,12 @@ import React, { useState, useEffect, useCallback } from 'react';
 import api from '../../config/api';
 import { getImageUrl } from '../../utils/imageUrl';
 
+// Import local fallback assets
+import trailerVideo from '../../assets/videos/trailer.mp4';
+import lelemVideo from '../../assets/videos/lelem.mp4';
+import ayrakLandscape from '../../assets/ayrak-landscape.png';
+import movieAboutImage from '../../assets/movieabout.jpg';
+
 const HeaderPoster = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [images, setImages] = useState([]);
@@ -103,7 +109,7 @@ const HeaderPoster = () => {
                 const imageUrls = imagesResponse.data.map(img => getImageUrl(img.imageUrl));
                 setImages(imageUrls);
             } else {
-                setImages([]);
+                setImages([ayrakLandscape, movieAboutImage]);
             }
 
             // Fetch videos
@@ -135,10 +141,12 @@ const HeaderPoster = () => {
                 console.log('HeaderPoster videos loaded:', videosObj);
             } else {
                 console.log('HeaderPoster: No videos found in database, using fallback');
+                setVideos({ left: trailerVideo, right: lelemVideo });
             }
         } catch (error) {
             console.error('Error fetching data:', error);
-            setImages([]);
+            setImages([ayrakLandscape, movieAboutImage]);
+            setVideos({ left: trailerVideo, right: lelemVideo });
         } finally {
             setLoading(false);
         }
