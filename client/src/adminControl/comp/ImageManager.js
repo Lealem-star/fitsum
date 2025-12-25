@@ -359,7 +359,9 @@ const ImageManager = () => {
                 <div className="p-4">
                   <p className="font-semibold text-gray-800 m-0 mb-2">{image.altText}</p>
                   <p className="text-gray-600 text-sm m-0 mb-2">Order: {image.order}</p>
-                  <p className="text-gray-400 text-xs m-0 break-all font-mono">{removeDataPrefix(image.imageUrl)}</p>
+                  {image.imageUrl && !image.imageUrl.startsWith('data:') && (
+                    <p className="text-gray-400 text-xs m-0 break-all font-mono">{image.imageUrl}</p>
+                  )}
                 </div>
                 <div className="p-4 border-t border-gray-200 flex gap-2.5">
                   <button 
