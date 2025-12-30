@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
-import mahletImage from '../../assets/mahlet solom.jpg';
+import mahletImage from '../../assets/fitsum.jpg';
 
 const NavComp = () => {
   const { isAuthenticated, user } = useContext(AuthContext);
@@ -54,10 +54,10 @@ const NavComp = () => {
             <Link to="/" className="no-underline text-amber-400 flex items-center gap-3">
               <img
                 src={mahletImage}
-                alt="Mahlet Solomon"
+                alt="Fitsum Fiseha"
                 className="w-12 h-12 rounded-full object-cover border-2 border-[#61dafb]"
               />
-              <h2 className="m-0 text-amber-400 text-2xl hidden sm:block">Mahlet Solomon</h2>
+              <h2 className="m-0 text-amber-400 text-2xl hidden sm:block">Fitsum Fiseha</h2>
             </Link>
           </div>
 
@@ -115,10 +115,10 @@ const NavComp = () => {
             <div className="flex items-center gap-3">
               <img
                 src={mahletImage}
-                alt="Mahlet Solomon"
+                alt="Fitsum Fiseha"
                 className="w-10 h-10 rounded-full object-cover border-2 border-[#61dafb]"
               />
-              <h3 className="text-lg font-semibold text-amber-400">Mahlet Solomon</h3>
+              <h3 className="text-lg font-semibold text-amber-400">Fitsum Fiseha</h3>
             </div>
             <button
               onClick={closeMobileMenu}

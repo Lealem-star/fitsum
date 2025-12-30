@@ -70,10 +70,10 @@ const EmailCapture = () => {
 
         <div className="text-center mb-6">
           <h2 className="text-2xl font-bold text-gray-800 mb-2">
-            Join Mahlet's Family! 🎬
+            Join Fitsum's Family! 🎬
           </h2>
           <p className="text-gray-600">
-            Get updates about her latest work, projects, and opportunities to collaborate.
+            Get updates about his latest work, projects, and opportunities to collaborate.
           </p>
         </div>
 

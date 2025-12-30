@@ -58,8 +58,8 @@ const EmailCaptureBanner = () => {
     <div className="bg-gradient-to-r from-[#61dafb] to-[#4fa8c5] text-white py-3 px-4 shadow-lg relative z-[998]">
       <div className="max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-4">
         <div className="flex-1 min-w-[200px]">
-          <p className="font-semibold mb-1">Join Mahlet's Family!</p>
-          <p className="text-sm opacity-90">Get updates about her latest work and opportunities</p>
+          <p className="font-semibold mb-1">Join Fitsum's Family!</p>
+          <p className="text-sm opacity-90">Get updates about his latest work and opportunities</p>
         </div>
 
         {message ? (

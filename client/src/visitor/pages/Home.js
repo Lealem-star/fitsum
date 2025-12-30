@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../config/api';
 import { getImageUrl } from '../../utils/imageUrl';
-import mahletImage from '../../assets/mahlet solom.jpg';
+import mahletImage from '../../assets/fitsum.jpg';
 import trailerVideo from '../../assets/videos/trailer.mp4';
 
 const Home = () => {
@@ -105,7 +105,7 @@ const Home = () => {
             {/* Centered Content */}
             <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4">
               <h1 className="text-5xl md:text-7xl font-bold text-amber-400 mb-4 drop-shadow-2xl">
-                Mahlet Solomon
+                Fitsum Fiseha
               </h1>
               <p className="text-lg md:text-xl text-amber-400/90 mb-8 max-w-3xl drop-shadow-lg">
                 Theatre and Film Director | Scriptwriter | Actress | Producer

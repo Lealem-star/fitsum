@@ -1,37 +1,32 @@
 const multer = require('multer');
-const cloudinary = require('cloudinary').v2;
-const { CloudinaryStorage } = require('multer-storage-cloudinary');
+const path = require('path');
+const fs = require('fs');
 
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET
-});
+// Ensure upload directories exist
+const uploadDir = path.join(__dirname, '..', '..', 'uploads');
+const videoDir = path.join(uploadDir, 'videos');
+const imageDir = path.join(uploadDir, 'images');
 
-const storage = new CloudinaryStorage({
-  cloudinary: cloudinary,
-  params: {
-    folder: (req, file) => {
-      if (file.fieldname === 'video') {
-        return 'uploads/videos';
-      } else if (file.fieldname === 'image') {
-        return 'uploads/images';
-      }
-      return 'uploads/others'; // Default folder
-    },
-    public_id: (req, file) => {
-      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-      const ext = path.extname(file.originalname);
-      const name = path.basename(file.originalname, ext).replace(/\s+/g, '-');
-      return name + '-' + uniqueSuffix;
-    },
-    resource_type: (req, file) => {
-      if (file.fieldname === 'video') {
-        return 'video';
-      }
-      return 'image';
-    },
+fs.existsSync(uploadDir) || fs.mkdirSync(uploadDir);
+fs.existsSync(videoDir) || fs.mkdirSync(videoDir);
+fs.existsSync(imageDir) || fs.mkdirSync(imageDir);
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    if (file.fieldname === 'video') {
+      cb(null, videoDir);
+    } else if (file.fieldname === 'image') {
+      cb(null, imageDir);
+    } else {
+      cb(new Error('Invalid fieldname'), uploadDir); // Default to a generic folder or handle error
+    }
   },
+  filename: (req, file, cb) => {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    const ext = path.extname(file.originalname);
+    const name = path.basename(file.originalname, ext).replace(/\s+/g, '-');
+    cb(null, name + '-' + uniqueSuffix + ext);
+  }
 });
 
 // File filter - images or videos based on field name
@@ -74,4 +69,3 @@ const upload = multer({
 });
 
 module.exports = upload;
-

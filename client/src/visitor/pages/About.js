@@ -1,6 +1,6 @@
 import React from 'react';
-import portraitPrimary from '../../assets/mahlet solom.jpg';
-import portraitSecondary from '../../assets/mahletsolomon.jpg';
+import portraitPrimary from '../../assets/fitsum.jpg';
+import portraitSecondary from '../../assets/fitsum.jpg';
 
 // Animated Movie & Theatre Icons Component
 const AnimatedIcon = ({ icon, className = '', delay = 0 }) => {
@@ -61,21 +61,14 @@ const getYouTubeId = (url) => {
 const About = () => {
     // Interview YouTube links
     const interviewVideos = [
-        'https://youtu.be/3e7F4sFfYZQ?si=2c1iIB5kP2fAfcCI',
-        'https://youtu.be/wPUqRyC0zA8?si=OxdYuOPGag6_jXvG',
-        'https://youtu.be/x0QFgCF5vRk?si=AlWE04UcXoEdQn9g',
-        'https://youtu.be/M_gL_g-g-xc?si=cqJk3BO1pLvTij6f',
-        'https://youtu.be/QFtlokfLF4I?si=SuLJdh4CCyCL22OX',
-        'https://youtu.be/gTM93V9zy4U?si=p9lWnr5Avwq2ivM2',
-        'https://youtu.be/3DsH_F4Bc2o?si=UH0phv3RmL8tzygB',
-        'https://youtu.be/UukdqkYgfEk?si=grkJsTuBlJxzAyy0',
+        'https://youtu.be/qjGw1pYZflE?si=_jStiN7si5Ae0-zl',
+        'https://youtu.be/Er2GZUuQ70U?si=YfyYlZ5CWjwR4VRS',
     ];
 
     // TV Show YouTube links
     const tvShowVideos = [
-        'https://youtu.be/1Ruks-KMQyQ?si=s-vTTpL8lkfkY07y',
-        'https://youtu.be/2dzimi3O8O0?si=EVptUzm-t0cFORB8',
-        'https://youtu.be/l7NtGezEjdg?si=BkBaf22bmW_DqNs9',
+        'https://youtu.be/LbH-iVmfYvU?si=_044SVDRd6MVSLzx',
+        'https://youtu.be/Nm5feveKsNo?si=KovFYG0LYu-SIyWm',
     ];
 
     return (
@@ -103,7 +96,7 @@ const About = () => {
                             <div className="relative rounded-2xl overflow-hidden shadow-xl w-full max-w-md">
                                 <img
                                     src={portraitPrimary}
-                                    alt="Mahlet Solomon"
+                                    alt="Fitsum Fiseha"
                                     className="w-full h-auto object-cover"
                                 />
                             </div>
@@ -112,24 +105,24 @@ const About = () => {
                         {/* Right: Text Content */}
                         <div className="space-y-6 text-amber-400">
                             <div>
-                                <p className="text-sm uppercase tracking-wider text-amber-400/70 mb-2">Creative Professional</p>
-                                <h1 className="text-4xl md:text-5xl font-bold mb-6">Mahlet Solomon</h1>
+                                <p className="text-sm uppercase tracking-wider text-amber-400/70 mb-2">Personal Development Trainer & Motivational Speaker</p>
+                                <h1 className="text-4xl md:text-5xl font-bold mb-6">Fitsum Fiseha</h1>
                                 <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-amber-400/90">
-                                    A Journey Through Teaching and Creative Expression
+                                    Empowering Lives Through Personal Development and Motivational Speaking
                                 </h2>
                             </div>
 
                             <div className="space-y-4 text-lg leading-relaxed text-amber-400/90">
                                 <p>
-                                    My journey as a creative professional began in the classroom, where I discovered my passion for teaching and mentoring. As an educator, I design transformative workshops that blend craft, mindset, and on-camera readiness, fostering environments where students feel safe to experiment and grow. This foundation in teaching naturally expanded into acting and directing, where I bring layered characters to life with fearless vulnerability and lead collaborative teams with precise storytelling vision.
+                                    As a personal development trainer and motivational speaker, I am dedicated to empowering individuals to unlock their full potential and achieve their dreams. My journey in personal development began with a deep passion for helping others overcome challenges, build confidence, and create meaningful change in their lives.
                                 </p>
 
                                 <p>
-                                    Through research focused on narrative structures and character development, I explore how bold women's voices can shape storytelling across mediums. As a producer with over 50 projects to my name, I bring together diverse creative teams to realize bold visions, always maintaining artistic integrity and strategic planning.
+                                    Through transformative workshops, one-on-one coaching, and powerful motivational speeches, I guide people on their path to self-discovery and growth. My approach combines practical strategies with inspirational insights, creating an environment where transformation is not just possible—it's inevitable.
                                 </p>
 
                                 <p>
-                                    Today, I continue to embrace my multifaceted role as an educator, actor, director, and producer. My journey is a testament to the belief that storytelling is a powerful vehicle for connection and transformation. Join me as we explore the art of narrative and the stories that shape our world.
+                                    I am the proud creator of "አንቂ አንደበቶች" (Anki Andebetoch), the first Ethiopian motivational speech competition. This groundbreaking initiative provides a platform for aspiring speakers to share their stories, inspire others, and develop their public speaking skills. Through this competition, I continue to foster a culture of empowerment and self-expression across Ethiopia.
                                 </p>
 
                                 <div className="pt-4 border-t border-amber-400/20">
@@ -137,7 +130,7 @@ const About = () => {
                                         Explore my work in detail below
                                     </p>
                                     <p className="text-sm text-amber-400/70 italic">
-                                        Learn more about my teaching philosophy, research studies, acting and directing work, and producing experience in the sections below.
+                                        Learn more about my personal development training, motivational speaking, and the "አንቂ አንደበቶች" competition in the sections below.
                                     </p>
                                 </div>
                             </div>
@@ -146,30 +139,28 @@ const About = () => {
                 </div>
             </section>
 
-            {/* My Teaching Section */}
+            {/* Personal Development Training Section */}
             <section className="py-16 px-5 bg-white/10 backdrop-blur-sm rounded-lg mx-4 mb-6 relative overflow-hidden border border-white/30">
                 <AnimatedIcon icon="stage" className="top-8 left-8" delay={0.5} />
                 <AnimatedIcon icon="spotlight" className="top-8 right-8" delay={1.5} />
                 <div className="max-w-6xl mx-auto relative z-10">
-                    <h2 className="text-4xl font-bold text-amber-400 mb-8 text-center">My Teaching</h2>
+                    <h2 className="text-4xl font-bold text-amber-400 mb-8 text-center">Personal Development Training</h2>
                     <div className="grid md:grid-cols-2 gap-8 items-center">
                         <div className="space-y-4">
                             <p className="text-lg text-amber-400/90 leading-relaxed">
-                                {/* Add your teaching description here */}
-                                As an educator, I design workshops that blend craft, mindset, and on-camera readiness.
-                                I coach actors to unlock presence, truth, and sustainable craft habits, creating spaces
-                                where risk-taking is celebrated and growth is inevitable.
+                                As a personal development trainer, I design comprehensive programs that help individuals unlock their potential, build confidence, and achieve their goals. My training approach combines proven methodologies with personalized coaching to create transformative experiences.
                             </p>
                             <p className="text-lg text-amber-400/90 leading-relaxed">
-                                My teaching philosophy centers on ensemble-first leadership, building teams where actors
-                                feel safe to experiment and crews move with clarity. Every lesson ladders up to real-world
-                                application and audience impact.
+                                Through interactive workshops, I guide participants in developing essential life skills including goal setting, time management, emotional intelligence, and leadership capabilities. My philosophy centers on creating a supportive environment where growth is celebrated and every individual is empowered to reach their highest potential.
+                            </p>
+                            <p className="text-lg text-amber-400/90 leading-relaxed">
+                                Whether working with individuals or groups, I focus on practical, actionable strategies that can be immediately applied to create positive change in both personal and professional lives.
                             </p>
                         </div>
                         <div className="relative rounded-2xl overflow-hidden shadow-xl">
                             <img
                                 src={portraitPrimary}
-                                alt="Mahlet Solomon teaching"
+                                alt="Fitsum Fiseha personal development training"
                                 className="w-full h-full object-cover"
                             />
                         </div>
@@ -177,131 +168,44 @@ const About = () => {
                 </div>
             </section>
 
-            {/* My Research Studies Section */}
-            <section className="py-16 px-5 bg-white/10 backdrop-blur-sm text-amber-400 rounded-lg mx-4 mb-6 relative overflow-hidden border border-white/30">
-                <AnimatedIcon icon="clapperboard" className="top-12 left-12" delay={0.8} />
-                <AnimatedIcon icon="camera" className="bottom-12 right-12" delay={2.2} />
-                <div className="max-w-6xl mx-auto relative z-10">
-                    <h2 className="text-4xl font-bold mb-8 text-center">My Academic Contributions to African Theatre Studies</h2>
-                    <div className="grid md:grid-cols-2 gap-8 items-start">
-                        <div className="relative rounded-2xl overflow-hidden shadow-xl">
-                            <img
-                                src={portraitSecondary}
-                                alt="Mahlet Solomon research"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-                        <div className="space-y-4">
-                            <p className="text-lg text-amber-400/90 leading-relaxed">
-                                As a passionate advocate for the arts and an educator affiliated with Addis Ababa University, I have dedicated a significant part of my career to advancing the understanding of African theatre, particularly focusing on the experiences of women in this vibrant field. My contributions span both scholarly publications and practical applications in theatre, reflecting my belief in the power of storytelling to foster cultural dialogue.
-                            </p>
-
-                            <div className="space-y-3">
-                                <h3 className="text-xl font-semibold text-amber-400">Contributions to African Theatre 14: Contemporary Women</h3>
-                                <p className="text-lg text-amber-400/90 leading-relaxed">
-                                    One of my proudest achievements is my contribution to the edited volume African Theatre 14: Contemporary Women, published by James Currey in 2015/2016. In this work, I had the honor of co-authoring a chapter titled "Contemporary Ethiopian Actresses" alongside Jane Plastow. This chapter features interviews with six remarkable Ethiopian actresses, shedding light on their personal experiences and the evolution of contemporary professional theatre in Addis Ababa.
-                                </p>
-                                <p className="text-lg text-amber-400/90 leading-relaxed">
-                                    Through these interviews, we aimed to highlight the vital contributions of women in African contemporary theatre, often overlooked by international media. It is crucial to acknowledge the unique challenges and triumphs these actresses face, as their stories enrich the cultural tapestry of Ethiopian theatre and underscore the importance of female voices in our artistic landscape.
-                                </p>
-                            </div>
-
-                            <div className="space-y-3">
-                                <h3 className="text-xl font-semibold text-amber-400">Contribution to the Journal of African Cultural Studies</h3>
-                                <p className="text-lg text-amber-400/90 leading-relaxed">
-                                    In addition to my work in the anthology, I co-authored an article in the Journal of African Cultural Studies with my colleague Lealem Berhanu Terega. Our article, titled "Religious, Political and Cultural Influences on the First Ethiopian Playwright, Teklehawariat Teklemariam and His Play Fabula: Yawreoch Commedia," was published in Volume 26, Issue 3, in 2014.
-                                </p>
-                                <p className="text-lg text-amber-400/90 leading-relaxed">
-                                    This article delves into the biography of Teklehawariat Teklemariam, the first Amharic-language playwright, and analyzes his groundbreaking play to reveal the socio-cultural identity that shaped his work. By examining the European and Ethiopian cultural elements that merged to create a new hybrid theatre form, we contribute to a deeper understanding of the formation and characteristics of Ethiopian theatre.
-                                </p>
-                            </div>
-
-                            <div className="space-y-3">
-                                <h3 className="text-xl font-semibold text-amber-400">Other Work and Initiatives</h3>
-                                <p className="text-lg text-amber-400/90 leading-relaxed">
-                                    Beyond my academic contributions, I remain actively engaged in the Ethiopian arts scene as a theatre and film director, scriptwriter, actress, and producer. I am committed to using applied theatre as a tool for peacebuilding and social cohesion through my organization, Mahlet Solomon Theatre Production (MSTP). This initiative allows me to explore the transformative power of theatre in fostering dialogue and understanding within communities.
-                                </p>
-                                <p className="text-lg text-amber-400/90 leading-relaxed">
-                                    Through my work in both academia and the arts, I strive to elevate the voices of women and promote the rich cultural heritage of Ethiopia. I believe that storytelling is not just an art form; it is a means of connection, healing, and empowerment.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* My Acting & Directing Section */}
-            <section className="py-16 px-5 bg-white/10 backdrop-blur-sm rounded-lg mx-4 mb-6 relative overflow-hidden border border-white/30">
-                <AnimatedIcon icon="mask" className="top-16 left-16" delay={1.2} />
-                <AnimatedIcon icon="film" className="top-16 right-16" delay={2.8} />
-                <div className="max-w-6xl mx-auto relative z-10">
-                    <h2 className="text-4xl font-bold text-amber-400 mb-8 text-center">My Acting & Directing</h2>
-                    <div className="grid md:grid-cols-2 gap-8 items-center">
-                        <div className="space-y-4">
-                            <p className="text-lg text-amber-400/90 leading-relaxed">
-                                {/* Add your acting & directing description here */}
-                                As an actor, I bring layered characters to life on stage and screen with fearless vulnerability.
-                                As a director, I lead casts and crews with a collaborative vision and precise storytelling instincts.
-                            </p>
-                            <p className="text-lg text-amber-400/90 leading-relaxed">
-                                From intimate drama to bold televised formats, I move fluidly between performance and leadership,
-                                shaping narratives that center truth, audacity, and emotional precision. Every story choice
-                                ladders up to an audience moment they remember.
-                            </p>
-                        </div>
-                        <div className="relative rounded-2xl overflow-hidden shadow-xl">
-                            <img
-                                src={portraitPrimary}
-                                alt="Mahlet Solomon acting and directing"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* My Producing Section */}
+            {/* አንቂ አንደበቶች Competition Section */}
             <section className="py-16 px-5 bg-white/10 backdrop-blur-sm text-amber-400 rounded-lg mx-4 mb-6 relative overflow-hidden border border-white/30">
                 <AnimatedIcon icon="spotlight" className="top-20 left-20" delay={1.6} />
                 <AnimatedIcon icon="clapperboard" className="bottom-20 right-20" delay={3.2} />
                 <div className="max-w-6xl mx-auto relative z-10">
-                    <h2 className="text-4xl font-bold mb-8 text-center">My Producing</h2>
+                    <h2 className="text-4xl font-bold mb-8 text-center">አንቂ አንደበቶች - The First Ethiopian Motivational Speech Competition</h2>
                     <div className="grid md:grid-cols-2 gap-8 items-center">
                         <div className="relative rounded-2xl overflow-hidden shadow-xl">
                             <img
                                 src={portraitSecondary}
-                                alt="Mahlet Solomon producing"
+                                alt="አንቂ አንደበቶች competition"
                                 className="w-full h-full object-cover"
                             />
                         </div>
                         <div className="space-y-4">
                             <p className="text-lg text-amber-400/90 leading-relaxed">
-                                {/* Add your producing description here */}
-                                As a producer, I build projects end-to-end, from financing to festival-ready finishes.
-                                I thrive on collaboration, bringing together creative teams and resources to bring bold
-                                visions to life.
+                                I am the proud creator and organizer of "አንቂ አንደበቶች" (Anki Andebetoch), the first Ethiopian motivational speech competition. This groundbreaking initiative was born from my vision to create a platform where aspiring speakers can share their stories, inspire others, and develop their public speaking skills.
                             </p>
                             <p className="text-lg text-amber-400/90 leading-relaxed">
-                                My producing approach combines strategic planning with creative flexibility, ensuring that
-                                every project maintains its artistic integrity while meeting production goals. I've led
-                                over 50 productions, each one a testament to the power of collaborative storytelling.
+                                The competition provides participants with the opportunity to craft and deliver powerful motivational speeches that resonate with audiences. Through this platform, we celebrate the art of public speaking while fostering a culture of empowerment, self-expression, and personal growth across Ethiopia.
+                            </p>
+                            <p className="text-lg text-amber-400/90 leading-relaxed">
+                                "አንቂ አንደበቶች" has become a transformative experience for countless participants, helping them build confidence, refine their communication skills, and connect with audiences in meaningful ways. This competition represents my commitment to empowering voices and creating opportunities for personal and professional development.
                             </p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* My TV Show & Judge Section */}
+            {/* Motivational Speaking Section */}
             <section className="py-16 px-5 bg-white/10 backdrop-blur-sm rounded-lg mx-4 mb-6 relative overflow-hidden border border-white/30">
                 <AnimatedIcon icon="camera" className="top-24 left-24" delay={2} />
                 <AnimatedIcon icon="stage" className="bottom-24 right-24" delay={3.6} />
                 <div className="max-w-6xl mx-auto relative z-10">
-                    <h2 className="text-4xl font-bold text-amber-400 mb-8 text-center">My TV Show & Judge</h2>
+                    <h2 className="text-4xl font-bold text-amber-400 mb-8 text-center">Motivational Speaking</h2>
                     <div className="space-y-6 mb-8">
                         <p className="text-lg text-amber-400/90 leading-relaxed text-center max-w-3xl mx-auto">
-                            I created and own a TV format dedicated to rising actors. As the resident judge, I design
-                            challenges that fuse craft with spontaneity, give actionable notes, and elevate standout
-                            performers to their next break.
+                            As a motivational speaker, I deliver powerful messages that inspire, empower, and transform. Through dynamic presentations, I connect with audiences on a deep level, sharing insights and strategies that help individuals overcome obstacles, achieve their goals, and create lasting positive change in their lives.
                         </p>
                     </div>
                     <div className="grid md:grid-cols-3 gap-6">
@@ -312,7 +216,7 @@ const About = () => {
                                 <div key={index} className="relative rounded-xl overflow-hidden shadow-lg bg-black">
                                     <div className="relative w-full pb-[56.25%]">
                                         <iframe
-                                            title={`TV Show Video ${index + 1}`}
+                                            title={`Motivational Speech Video ${index + 1}`}
                                             src={`https://www.youtube.com/embed/${videoId}`}
                                             className="absolute inset-0 w-full h-full"
                                             frameBorder="0"
@@ -336,8 +240,8 @@ const About = () => {
                     <h2 className="text-4xl font-bold mb-8 text-center">My Interviews</h2>
                     <div className="space-y-6 mb-8">
                         <p className="text-lg text-amber-400/90 leading-relaxed text-center max-w-3xl mx-auto">
-                            Conversations about craft, collaboration, and the creative process. These interviews explore
-                            my journey as a multidisciplinary artist and the stories behind the work.
+                            Conversations about personal development, motivation, and empowerment. These interviews explore
+                            my journey as a trainer and motivational speaker, sharing insights on personal growth, the creation of "አንቂ አንደበቶች", and the stories behind inspiring transformation.
                         </p>
                     </div>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

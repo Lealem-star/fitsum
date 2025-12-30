@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import api from '../../config/api';
-import portraitPrimary from '../../assets/mahlet solom.jpg';
+import portraitPrimary from '../../assets/fitsum.jpg';
 
 const Contact = () => {
     const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
@@ -49,7 +49,7 @@ const Contact = () => {
                         <div className="w-96 md:w-[500px] lg:w-[600px] rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-black">
                             <img
                                 src={portraitPrimary}
-                                alt="Mahlet Solomon"
+                                alt="Fitsum Fiseha"
                                 className="w-full h-auto object-cover"
                             />
                         </div>
@@ -144,7 +144,7 @@ const Contact = () => {
                     <div className="flex flex-wrap justify-center gap-4">
                         {/* Instagram */}
                         <a
-                            href="https://instagram.com/mahletsolomon"
+                            href="https://www.instagram.com/fitsumfisehatrainer_/?hl=en"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105"
@@ -157,7 +157,7 @@ const Contact = () => {
 
                         {/* Twitter */}
                         <a
-                            href="https://twitter.com/mahletsolomon"
+                            href="https://www.tiktok.com/@fitsumtrainer1/video/7538894922938600760"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center gap-2 px-4 py-2 bg-[#1DA1F2] text-white rounded-lg hover:bg-[#1a8cd8] transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105"
@@ -183,7 +183,7 @@ const Contact = () => {
 
                         {/* Facebook */}
                         <a
-                            href="https://facebook.com/mahletsolomon"
+                            href="https://www.facebook.com/fitsum.fiseha.9"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center gap-2 px-4 py-2 bg-[#1877F2] text-white rounded-lg hover:bg-[#166fe5] transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105"
@@ -196,7 +196,7 @@ const Contact = () => {
 
                         {/* YouTube */}
                         <a
-                            href="https://youtube.com/@mahletsolomon"
+                            href="https://www.youtube.com/channel/UCNvHCa5hbWucXiYSuxFlqpw"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center gap-2 px-4 py-2 bg-[#FF0000] text-white rounded-lg hover:bg-[#cc0000] transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105"
@@ -233,7 +233,7 @@ const Contact = () => {
                         </div>
                         <h3 className="text-lg font-semibold">Email Address</h3>
                         <div className="text-sm text-white/80 space-y-1 break-all">
-                            <p>contact@mahletsolomon.com</p>
+                            <p>contact@fitsumfiseha.com</p>
                         </div>
                     </div>
 
@@ -244,7 +244,7 @@ const Contact = () => {
                         </div>
                         <h3 className="text-lg font-semibold">Phone Numbers</h3>
                         <div className="text-sm text-amber-400/80 space-y-1">
-                            <p>+251 911 000 000</p>
+                            <p>+251 972 727 384</p>
                         </div>
                     </div>
                 </div>

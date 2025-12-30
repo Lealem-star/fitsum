@@ -420,7 +420,7 @@ router.post('/admin/broadcast', auth, async (req, res) => {
               </div>
               <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
               <p style="font-size: 12px; color: #999;">
-                You received this email because you subscribed to updates from Mahlet Solomon.<br>
+                You received this email because you subscribed to updates from Fitsum Fiseha.<br>
                 <a href="${process.env.CLIENT_URL || 'http://localhost:3000'}/unsubscribe?email=${encodeURIComponent(subscriber.email)}">Unsubscribe</a>
               </p>
             </div>
