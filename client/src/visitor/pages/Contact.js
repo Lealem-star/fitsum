@@ -68,6 +68,16 @@ const Contact = () => {
                             </p>
                         </div>
 
+                        {/* Niku Podcast Invitation */}
+                        <div className="bg-amber-400/10 border-2 border-amber-400/30 rounded-xl p-6 mb-4">
+                            <h3 className="text-xl font-bold text-black mb-2">🎙️ Be a Guest on Niku Podcast</h3>
+                            <p className="text-base text-black/90 leading-relaxed">
+                                Do you have an inspiring personal story to share? We're always looking for guests who want to share their journey, 
+                                experiences, and insights on the Niku Podcast. If you're interested in being a guest and sharing your story, 
+                                please let us know in your message below!
+                            </p>
+                        </div>
+
                         {success && (
                             <div className="bg-green-50/90 border border-green-200 text-green-800 px-4 py-3 rounded">
                                 {success}
