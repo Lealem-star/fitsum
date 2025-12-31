@@ -12,10 +12,10 @@ const Footer = () => {
                     <div className="col-span-1">
                         <h4 className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-black mb-1 sm:mb-2 md:mb-3 lg:mb-4">Fitsum Fiseha</h4>
                         <p className="text-black/80 text-[10px] sm:text-xs md:text-sm leading-relaxed mb-1 sm:mb-2 md:mb-3 lg:mb-4">
-                            Actor • Performer • Creative Professional
+                            Personal Development Trainer • Motivational Speaker • Competition Creator
                         </p>
                         <p className="text-black/80 text-[10px] sm:text-xs md:text-sm leading-relaxed">
-                            Passionate about storytelling and bringing characters to life. Connect with me for collaborations, partnerships, and creative projects.
+                            Empowering individuals to unlock their full potential and achieve their dreams. Connect with me for training programs, motivational speaking engagements, and personal development opportunities.
                         </p>
                     </div>
 
