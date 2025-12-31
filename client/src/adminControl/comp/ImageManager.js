@@ -177,13 +177,6 @@ const ImageManager = () => {
     setUploadMethod('file');
   };
 
-  const removeDataPrefix = (url) => {
-    if (url && url.startsWith('data:')) {
-      return '[Data URL - truncated]'; // Or return url.substring(url.indexOf(',') + 1) if full data is needed
-    }
-    return url;
-  };
-
   if (loading) {
     return <div className="text-center py-10 text-gray-600 text-xl">Loading images...</div>;
   }
