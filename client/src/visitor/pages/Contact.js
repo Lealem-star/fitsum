@@ -60,11 +60,11 @@ const Contact = () => {
                         <div className="space-y-4">
                             {/* <p className="text-4xl md:text-5xl font-extrabold leading-tight text-black">Partnership Call</p> */}
                             <h1 className="text-xl md:text-2xl font-bold uppercase tracking-[0.35em] text-black">
-                                Let's talk about<br />your project
+                                Let's talk about<br />your goals
                             </h1>
                             <p className="text-lg font-bold text-black leading-relaxed mt-4">
-                                I'm excited to hear about your creative vision. Whether you're looking for collaboration,
-                                partnership opportunities, or have a project in mind, let's start a conversation.
+                                I'm excited to help you on your personal development journey. Whether you're looking for training programs,
+                                motivational speaking engagements, or personal development opportunities, let's start a conversation.
                             </p>
                         </div>
 
