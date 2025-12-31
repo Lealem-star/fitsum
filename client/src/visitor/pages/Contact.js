@@ -45,7 +45,7 @@ const Contact = () => {
             <section className="relative py-6 px-3 sm:py-8 sm:px-4 md:py-10 md:px-5 mx-auto max-w-6xl mb-4">
                 <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 items-center text-amber-400 p-3 sm:p-4 md:p-6 rounded-xl sm:rounded-2xl border border-white/30 bg-white/10 backdrop-blur-sm">
                     {/* Left: Image */}
-                    <div className="flex justify-center md:justify-start order-2 md:order-1">
+                    <div className="flex justify-center md:justify-start order-1">
                         <div className="w-full max-w-[280px] sm:max-w-[350px] md:max-w-[450px] lg:max-w-[500px] xl:max-w-[600px] rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-black">
                             <img
                                 src={portraitPrimary}
@@ -56,7 +56,7 @@ const Contact = () => {
                     </div>
 
                     {/* Right: Content & Form */}
-                    <div className="space-y-4 sm:space-y-5 md:space-y-6 order-1 md:order-2">
+                    <div className="space-y-4 sm:space-y-5 md:space-y-6 order-2">
                         <div className="space-y-3 sm:space-y-4">
                             {/* <p className="text-4xl md:text-5xl font-extrabold leading-tight text-black">Partnership Call</p> */}
                             <h1 className="text-lg sm:text-xl md:text-2xl font-bold uppercase tracking-[0.1em] sm:tracking-[0.2em] md:tracking-[0.35em] text-black leading-tight">
