@@ -108,7 +108,7 @@ const Home = () => {
                 Fitsum Fiseha
               </h1>
               <p className="text-lg md:text-xl text-amber-400/90 mb-8 max-w-3xl drop-shadow-lg">
-                Theatre and Film Director | Scriptwriter | Actress | Producer
+                Personal Development Trainer | Motivational Speaker | Competition Creator
               </p>
             </div>
 
