@@ -14,9 +14,6 @@ import Contact from './visitor/pages/Contact';
 import Login from './adminControl/comp/Login';
 import AdminDashboard from './adminControl/pages/AdminDashboard';
 import AdminPortal from './adminControl/pages/AdminPortal';
-import movieheroImage from './assets/moviehero.jpg';
-import movieaboutImage from './assets/movieabout.jpg';
-import moviebackImage from './assets/movieback.jpg';
 
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
@@ -34,19 +31,9 @@ const ProtectedRoute = ({ children }) => {
 };
 
 // Layout component for pages with HeaderPoster and Nav
-const Layout = ({ children, showHeaderPoster = true, backgroundImage }) => {
+const Layout = ({ children, showHeaderPoster = true }) => {
   return (
     <div className="w-full min-h-screen relative">
-      {/* Background Image */}
-      <div
-        className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url(${backgroundImage})`,
-        }}
-      >
-        <div className="absolute inset-0 bg-black/30"></div>
-      </div>
-
       {/* Email Capture Banner */}
       <EmailCaptureBanner />
 
@@ -89,7 +76,7 @@ function App() {
           <Route
             path="/"
             element={
-              <Layout backgroundImage={movieheroImage}>
+              <Layout>
                 <Home />
               </Layout>
             }
@@ -97,7 +84,7 @@ function App() {
           <Route
             path="/about"
             element={
-              <Layout showHeaderPoster={false} backgroundImage={movieaboutImage}>
+              <Layout showHeaderPoster={false}>
                 <About />
               </Layout>
             }
@@ -105,7 +92,7 @@ function App() {
           <Route
             path="/services"
             element={
-              <Layout showHeaderPoster={false} backgroundImage={movieheroImage}>
+              <Layout showHeaderPoster={false}>
                 <Services />
               </Layout>
             }
@@ -113,7 +100,7 @@ function App() {
           <Route
             path="/latest"
             element={
-              <Layout showHeaderPoster={false} backgroundImage={movieheroImage}>
+              <Layout showHeaderPoster={false}>
                 <Latest />
               </Layout>
             }
@@ -121,7 +108,7 @@ function App() {
           <Route
             path="/contact"
             element={
-              <Layout showHeaderPoster={false} backgroundImage={moviebackImage}>
+              <Layout showHeaderPoster={false}>
                 <Contact />
               </Layout>
             }

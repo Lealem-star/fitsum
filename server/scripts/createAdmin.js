@@ -17,7 +17,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/mern-app';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://meseretlealem8_db_user:G5I9NrMAH9jgiai0@fitsum.dcmhegq.mongodb.net/?appName=fitsum';
 
 async function createAdmin() {
   try {
