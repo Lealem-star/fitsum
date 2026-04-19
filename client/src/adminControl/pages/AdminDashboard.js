@@ -408,7 +408,7 @@ const AdminDashboard = () => {
         {/* Main Content */}
         <main className="flex-1 space-y-6 lg:ml-0 mt-20 lg:mt-0">
           {/* Desktop Header - Hidden on Mobile */}
-          <header className="hidden lg:flex bg-white bg-opacity-95 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/30 p-6 flex flex-row items-center justify-between">
+          <header className="hidden lg:flex lg:flex-row lg:items-center lg:justify-between bg-white bg-opacity-95 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/30 p-6">
             <div>
               <p className="text-sm text-gray-500">Welcome back</p>
               <h1 className="text-3xl font-semibold text-gray-900">Hi {user?.name || 'Admin'}, let's build.</h1>
