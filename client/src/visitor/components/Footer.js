@@ -56,20 +56,101 @@ const Footer = () => {
         { href: socials[2].href, label: 'YouTube', icon: iconYouTube, className: 'text-red-500 hover:text-red-400' },
     ];
 
+    const cardsGrid = (
+        <>
+            <div className="rounded-xl bg-neutral-900/90 border border-neutral-800 p-4 sm:p-5 shadow-inner">
+                <h3 className="text-white font-bold text-base mb-3 sm:mb-4">Quick Links</h3>
+                <ul className="space-y-2 sm:space-y-2.5 text-xs sm:text-sm">
+                    {quickLinks.map(({ to, label }) => {
+                        const active = location.pathname === to;
+                        return (
+                            <li key={to}>
+                                <Link
+                                    to={to}
+                                    className={`transition-colors duration-200 hover:text-white ${active ? 'text-white underline underline-offset-4 decoration-white/60' : 'text-gray-400'
+                                        }`}
+                                >
+                                    {label}
+                                </Link>
+                            </li>
+                        );
+                    })}
+                </ul>
+            </div>
+            <div className="rounded-xl bg-neutral-900/90 border border-neutral-800 p-4 sm:p-5 shadow-inner">
+                <h3 className="text-white font-bold text-base mb-3 sm:mb-4">Socials</h3>
+                <ul className="space-y-2 sm:space-y-2.5 text-xs sm:text-sm">
+                    {socials.map(({ label, href }) => (
+                        <li key={label}>
+                            <a
+                                href={href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-gray-400 hover:text-white transition-colors duration-200"
+                            >
+                                {label}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </>
+    );
+
     return (
-        <footer className="bg-[#0c0c0c] text-gray-400 mt-16 relative z-10 border-t border-neutral-800">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-                    {/* Left: brand + tagline + icon row */}
-                    <div className="lg:col-span-4 space-y-5">
+        <footer className="bg-[#0d0d0d] text-gray-400 mt-16 relative z-10 border-t border-neutral-800">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-16">
+                {/* Mobile: portrait as background behind brand + cards below */}
+                <div className="flex flex-col items-center text-center gap-10 lg:hidden">
+                    <div
+                        className="w-full max-w-xl relative overflow-hidden rounded-2xl border border-neutral-800/80 bg-neutral-900 bg-cover bg-center bg-no-repeat shadow-xl min-h-[300px] sm:min-h-[340px]"
+                        style={{ backgroundImage: `url(${fitsumPortrait})` }}
+                    >
+                        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/65 to-black/80" aria-hidden />
+                        <div className="relative z-10 flex flex-col items-center text-center space-y-4 p-6 sm:p-8 h-full justify-center">
+                            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-400 bg-clip-text text-transparent drop-shadow-lg">
+                                Fitsum Fiseha
+                            </h2>
+                            <p className="text-sm sm:text-base leading-relaxed text-gray-200/90 max-w-md mx-auto drop-shadow-md">
+                                Personal Development Trainer • Motivational Speaker • Competition Creator
+                            </p>
+                            <p className="text-sm sm:text-base leading-relaxed text-gray-200/85 max-w-md mx-auto drop-shadow-md">
+                                Empowering individuals to unlock their full potential and achieve their dreams. Connect with me for training programs, motivational speaking engagements, sharing your story, and personal development opportunities.
+                            </p>
+                            <div className="flex items-center justify-center gap-6 sm:gap-8 pt-2">
+                                {heroIcons.map(({ href, label, icon, className }) => (
+                                    <a
+                                        key={label}
+                                        href={href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label={label}
+                                        className={`transition-colors duration-300 drop-shadow-md ${className}`}
+                                    >
+                                        {icon}
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="w-full max-w-lg grid grid-cols-2 gap-3 sm:gap-4 text-left">
+                        {cardsGrid}
+                    </div>
+                </div>
+
+                {/* Desktop (lg+): original 3-column — text | portrait img | cards */}
+                <div className="hidden lg:grid lg:grid-cols-12 lg:gap-12 lg:items-start lg:text-left">
+                    <div className="lg:col-span-4 flex flex-col items-start text-left space-y-5">
                         <h2 className="text-2xl sm:text-3xl font-bold tracking-tight bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-400 bg-clip-text text-transparent drop-shadow-sm">
                             Fitsum Fiseha
                         </h2>
                         <p className="text-sm sm:text-base leading-relaxed text-gray-400 max-w-md">
                             Personal Development Trainer • Motivational Speaker • Competition Creator
                         </p>
-                        <p>Empowering individuals to unlock their full potential and achieve their dreams. Connect with me for training programs, motivational speaking engagements, sharing your story, and personal development opportunities.</p>
-                        <div className="flex items-center gap-5 pt-1">
+                        <p className="text-sm sm:text-base leading-relaxed text-gray-400 max-w-md">
+                            Empowering individuals to unlock their full potential and achieve their dreams. Connect with me for training programs, motivational speaking engagements, sharing your story, and personal development opportunities.
+                        </p>
+                        <div className="flex items-center justify-start gap-6 sm:gap-8 pt-1">
                             {heroIcons.map(({ href, label, icon, className }) => (
                                 <a
                                     key={label}
@@ -84,10 +165,8 @@ const Footer = () => {
                             ))}
                         </div>
                     </div>
-
-                    {/* Center: portrait */}
-                    <div className="lg:col-span-4 flex justify-center">
-                        <div className="relative w-full max-w-[220px] sm:max-w-[260px]">
+                    <div className="lg:col-span-4 flex justify-center shrink-0">
+                        <div className="relative w-full max-w-[260px]">
                             <img
                                 src={fitsumPortrait}
                                 alt="Fitsum Fiseha"
@@ -95,56 +174,19 @@ const Footer = () => {
                             />
                         </div>
                     </div>
-
-                    {/* Right: Quick Links + Socials cards */}
-                    <div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div className="rounded-xl bg-neutral-900/90 border border-neutral-800 p-5 shadow-inner">
-                            <h3 className="text-white font-bold text-base mb-4">Quick Links</h3>
-                            <ul className="space-y-2.5 text-sm">
-                                {quickLinks.map(({ to, label }) => {
-                                    const active = location.pathname === to;
-                                    return (
-                                        <li key={to}>
-                                            <Link
-                                                to={to}
-                                                className={`transition-colors duration-200 hover:text-white ${active ? 'text-white underline underline-offset-4 decoration-white/60' : 'text-gray-400'
-                                                    }`}
-                                            >
-                                                {label}
-                                            </Link>
-                                        </li>
-                                    );
-                                })}
-                            </ul>
-                        </div>
-                        <div className="rounded-xl bg-neutral-900/90 border border-neutral-800 p-5 shadow-inner">
-                            <h3 className="text-white font-bold text-base mb-4">Socials</h3>
-                            <ul className="space-y-2.5 text-sm">
-                                {socials.map(({ label, href }) => (
-                                    <li key={label}>
-                                        <a
-                                            href={href}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="text-gray-400 hover:text-white transition-colors duration-200"
-                                        >
-                                            {label}
-                                        </a>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+                    <div className="lg:col-span-4 grid grid-cols-2 gap-4 text-left self-stretch">
+                        {cardsGrid}
                     </div>
                 </div>
             </div>
 
             {/* Bottom bar */}
             <div className="border-t border-neutral-800/80">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-4 flex flex-col items-center justify-center gap-3 text-center sm:flex-row sm:justify-between sm:items-center sm:text-left">
                     <p className="text-gray-500 text-xs sm:text-sm">
                         © {currentYear} All Rights Reserved.
                     </p>
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-row items-center justify-center gap-2">
                         <span className="text-gray-500 text-xs sm:text-sm">Built By</span>
                         <a
                             href="https://t.me/thebaseoftheworld"
