@@ -10,7 +10,6 @@ import ContactMessagesManager from '../comp/ContactMessagesManager';
 import AdminManager from '../comp/AdminManager';
 import { AuthContext } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import backgroundImage from '../../assets/moviehero.jpg';
 import api from '../../config/api'; // Import the api utility
 
 const navItems = [
@@ -108,14 +107,7 @@ const AdminDashboard = () => {
     <React.Fragment>
       <div className="min-h-screen p-5 relative">
 
-      <div
-        className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url(${backgroundImage})`,
-        }}
-      >
-        <div className="absolute inset-0 bg-black/30"></div>
-      </div>
+      <div className="fixed inset-0 -z-10 bg-[#aec4fe]" aria-hidden />
 
       {/* Mobile Top Bar - Menu Button and Welcome Section (Mobile Only) */}
       <div className="lg:hidden fixed top-0 left-0 right-0 z-[1000] bg-white bg-opacity-95 backdrop-blur-sm shadow-lg">

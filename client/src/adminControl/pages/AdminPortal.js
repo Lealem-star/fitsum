@@ -2,20 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import backgroundImage from '../../assets/moviehero.jpg';
-
 const AdminPortal = () => {
   return (
     <>
     <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative">
-      <div 
-        className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url(${backgroundImage})`,
-        }}
-      >
-        <div className="absolute inset-0 bg-black/30"></div>
-      </div>
+      <div className="fixed inset-0 -z-10 bg-[#aec4fe]" aria-hidden />
       <div className="max-w-2xl w-full space-y-8 bg-white bg-opacity-95 backdrop-blur-sm p-8 rounded-lg shadow-xl relative z-10">
         <div className="text-center">
           <h1 className="text-4xl font-extrabold text-gray-900 mb-4">

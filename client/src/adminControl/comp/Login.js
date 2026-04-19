@@ -1,7 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
-import backgroundImage from '../../assets/moviehero.jpg';
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -35,14 +34,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative">
-      <div 
-        className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url(${backgroundImage})`,
-        }}
-      >
-        <div className="absolute inset-0 bg-black/30"></div>
-      </div>
+      <div className="fixed inset-0 -z-10 bg-[#aec4fe]" aria-hidden />
       <div className="max-w-md w-full space-y-8 bg-white bg-opacity-95 backdrop-blur-sm p-8 rounded-lg shadow-xl relative z-10">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
