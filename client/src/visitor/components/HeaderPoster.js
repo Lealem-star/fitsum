@@ -180,7 +180,7 @@ const HeaderPoster = () => {
 
     return (
         <div className="w-full bg-transparent relative z-[1000]">
-            <div className="flex w-full h-[100px] overflow-hidden md:flex-row flex-col md:h-[100px] h-[75px] gap-2 md:gap-4">
+            <div className="flex w-full h-[75px] md:h-[100px] overflow-hidden flex-col md:flex-row gap-2 md:gap-4">
                 {/* Left Video */}
                 <div className="flex-1 relative overflow-hidden hidden md:block">
                     {videoErrors.left ? (
@@ -197,7 +197,7 @@ const HeaderPoster = () => {
                 </div>
 
                 {/* Center Images Carousel */}
-                <div className="flex-1 relative overflow-hidden bg-transparent md:flex-1 flex-1">
+                <div className="flex-1 relative overflow-hidden bg-transparent">
                     {loading ? (
                         <div className="flex items-center justify-center h-full text-white text-xl">Loading images...</div>
                     ) : images.length > 0 ? (
