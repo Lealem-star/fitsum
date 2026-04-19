@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import api from '../../config/api';
 import { getImageUrl } from '../../utils/imageUrl';
 import mahletImage from '../../assets/fitsum.jpg';
+import nikuLogo from '../../assets/niku.jpg';
 import trailerVideo from '../../assets/videos/trailer.mp4';
 
 const Home = () => {
@@ -152,21 +153,60 @@ const Home = () => {
         )}
       </section>
 
-      {/* Welcome Video Section */}
-      <section id="welcome-video" className="w-full mb-6">
-        <div className="relative w-full overflow-hidden bg-black" style={{ paddingTop: '56.25%' }}>
-          <video
-            className="absolute top-0 left-0 w-full h-full object-cover"
-            src={trailerVideo}
-            autoPlay
-            loop
-            muted
-            playsInline
-            controls
-          />
+      {/* after hero section */}
+      <section className="w-full px-4 sm:px-6 lg:px-8 mb-8">
+        <div className="max-w-7xl mx-auto rounded-2xl border border-white/30 bg-white/10 backdrop-blur-sm shadow-xl p-6 sm:p-8 lg:p-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="space-y-5 text-center lg:text-left">
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-black">
+                <span className="block">UNLOCK YOUR</span>
+                <span className="block">TRUE POTENTIAL</span>
+              </h2>
+              <p className="text-lg sm:text-xl font-bold text-black">
+                Transform your mindset. Elevate your life. Inspire others.
+              </p>
+              <p className="text-base sm:text-lg leading-relaxed text-black">
+                Join a journey of growth with Fitsum Fiseha -- personal development trainer, motivational speaker, and creator of Ethiopia's first motivational speech competition.
+              </p>
+            </div>
+            <div className="flex justify-center lg:justify-end">
+              <img
+                src={nikuLogo}
+                alt="Niku logo"
+                className="w-full max-w-[430px] h-auto object-contain rounded-xl shadow-2xl"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
+      {/* statics */}
+      <section className="w-full px-4 sm:px-6 lg:px-8 mb-10">
+        <div className="max-w-7xl mx-auto rounded-2xl bg-transparent p-2 sm:p-3">
+          <div className="flex flex-col md:flex-row items-stretch md:items-center gap-2 sm:gap-3">
+            <div className="rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 min-h-[140px] sm:min-h-[160px] flex-1 basis-0 flex flex-col items-center justify-center text-center px-4">
+              <p className="text-4xl sm:text-5xl font-extrabold text-white">272K+</p>
+              <p className="mt-2 text-sm sm:text-base font-bold tracking-wide text-gray-400 uppercase">Subscribers</p>
+            </div>
+
+            <span className="md:hidden w-28 h-[2px] mx-auto bg-gradient-to-r from-transparent via-yellow-400 to-transparent" />
+            <span className="hidden md:block w-[6px] h-20 bg-gradient-to-b from-transparent via-yellow-400 to-transparent" />
+
+            <div className="rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 min-h-[140px] sm:min-h-[160px] flex-1 basis-0 flex flex-col items-center justify-center text-center px-4">
+              <p className="text-4xl sm:text-5xl font-extrabold text-white">27M+</p>
+              <p className="mt-2 text-sm sm:text-base font-bold tracking-wide text-gray-400 uppercase">Views</p>
+            </div>
+
+            <span className="md:hidden w-28 h-[2px] mx-auto bg-gradient-to-r from-transparent via-yellow-400 to-transparent" />
+            <span className="hidden md:block w-[6px] h-20 bg-gradient-to-b from-transparent via-yellow-400 to-transparent" />
+
+            <div className="rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 min-h-[140px] sm:min-h-[160px] flex-1 basis-0 flex flex-col items-center justify-center text-center px-4">
+              <p className="text-4xl sm:text-5xl font-extrabold text-white">250+</p>
+              <p className="mt-2 text-sm sm:text-base font-bold tracking-wide text-gray-400 uppercase">Influencers</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Subscribe Section */}
       <section id="contact" className="py-16 px-5 bg-transparent backdrop-blur-sm rounded-lg mx-4 mb-0">
