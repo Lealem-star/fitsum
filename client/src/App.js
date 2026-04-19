@@ -46,7 +46,7 @@ const Layout = ({ children, showHeaderPoster = true }) => {
 
         {/* HeaderPoster - appears second on mobile, first on desktop */}
         {showHeaderPoster && (
-          <div className="order-2 md:order-1 m-2 mb-4 md:m-0 md:pt-4 md:px-2 md:pb-4 relative z-10">
+          <div className="order-2 md:order-1 m-2 mb-4  md:m-0 md:p-0 relative z-10">
             <div className="rounded-lg shadow-2xl overflow-hidden border-2 border-amber-400">
               <HeaderPoster />
             </div>
