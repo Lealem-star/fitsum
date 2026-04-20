@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useRef } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 
@@ -53,22 +53,6 @@ const NavComp = () => {
   const { isAuthenticated, user } = useContext(AuthContext);
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const navRef = useRef(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY || window.pageYOffset;
-      setIsScrolled(scrollY > 150);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   const isActive = (to, end) => {
     if (end) return location.pathname === '/';
@@ -92,13 +76,7 @@ const NavComp = () => {
 
   return (
     <>
-      {isScrolled && <div className="h-16 mb-4" aria-hidden />}
-      <nav
-        ref={navRef}
-        className={`w-full bg-black text-white border-b border-neutral-800 z-[999] mb-4 transition-all duration-300 ${
-          isScrolled ? 'fixed top-0 left-0 right-0 shadow-lg' : 'relative'
-        }`}
-      >
+      <nav className="w-full text-white z-[999] mb-0 transition-all duration-300 relative bg-black/60 backdrop-blur-sm border-b border-white/10">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-10 flex items-center justify-between gap-4 h-16">
           {/* Wordmark — yellow text in light border */}
           <Link

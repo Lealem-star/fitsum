@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import api from '../../config/api';
-import portraitPrimary from '../../assets/fitsum.jpg';
+import portraitPrimary from '../../assets/fitsumf.png';
 
 const Contact = () => {
     const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });

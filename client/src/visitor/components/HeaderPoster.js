@@ -180,21 +180,24 @@ const HeaderPoster = () => {
 
     return (
         <div className="w-full bg-transparent relative z-[1000]">
-            <div className="flex w-full h-[75px] md:h-[100px] overflow-hidden flex-col md:flex-row gap-2 md:gap-4">
+            <div className="flex w-full h-[75px] md:h-[100px] overflow-hidden flex-col md:flex-row gap-0">
                 {/* Left Video */}
                 <div className="flex-1 relative overflow-hidden hidden md:block">
                     {videoErrors.left ? (
-                        <div className="w-full h-full bg-gray-800 flex items-center justify-center">
+                        <div className="w-full h-full bg-transparent flex items-center justify-center">
                             <p className="text-amber-400 text-sm">Video unavailable</p>
                         </div>
                     ) : videos.left ? (
                         renderVideo('left', videos.left)
                     ) : (
-                        <div className="w-full h-full bg-gray-900 flex items-center justify-center text-amber-400 text-sm">
+                        <div className="w-full h-full bg-transparent flex items-center justify-center text-amber-400 text-sm">
                             No video
                         </div>
                     )}
                 </div>
+
+                <span className="md:hidden w-28 h-[2px] mx-auto bg-gradient-to-r from-transparent via-yellow-400 to-transparent" />
+                <span className="hidden md:block w-[6px] h-20 bg-gradient-to-b from-transparent via-yellow-400 to-transparent" />
 
                 {/* Center Images Carousel */}
                 <div className="flex-1 relative overflow-hidden bg-transparent">
@@ -234,16 +237,19 @@ const HeaderPoster = () => {
                     )}
                 </div>
 
+                <span className="md:hidden w-28 h-[2px] mx-auto bg-gradient-to-r from-transparent via-yellow-400 to-transparent" />
+                <span className="hidden md:block w-[6px] h-20 bg-gradient-to-b from-transparent via-yellow-400 to-transparent" />
+
                 {/* Right Video */}
                 <div className="flex-1 relative overflow-hidden hidden md:block">
                     {videoErrors.right ? (
-                        <div className="w-full h-full bg-gray-800 flex items-center justify-center">
+                        <div className="w-full h-full bg-transparent flex items-center justify-center">
                             <p className="text-amber-400 text-sm">Video unavailable</p>
                         </div>
                     ) : videos.right ? (
                         renderVideo('right', videos.right)
                     ) : (
-                        <div className="w-full h-full bg-gray-900 flex items-center justify-center text-amber-400 text-sm">
+                        <div className="w-full h-full bg-transparent flex items-center justify-center text-amber-400 text-sm">
                             No video
                         </div>
                     )}
