@@ -231,10 +231,10 @@ const Home = () => {
               </div>
 
               {/* Actions */}
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-1">
+              <div className="flex flex-row flex-wrap items-center justify-center lg:justify-start gap-3 pt-1">
                 <button
                   type="button"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-black text-white text-sm sm:text-base font-semibold hover:bg-zinc-800 transition-colors"
+                  className="inline-flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full bg-black text-white text-xs sm:text-base font-semibold hover:bg-zinc-800 transition-colors whitespace-nowrap"
                 >
                   BECOME A SPONSOR
                   <span className="w-6 h-6 rounded-full bg-zinc-700 inline-flex items-center justify-center text-sm">
@@ -245,7 +245,7 @@ const Home = () => {
                   href="https://www.youtube.com/channel/UCNvHCa5hbWucXiYSuxFlqpw?sub_confirmation=1"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-8 py-3 rounded-full bg-yellow-400 text-black text-sm sm:text-base font-bold hover:bg-yellow-300 transition-colors"
+                  className="inline-flex items-center px-5 sm:px-8 py-2.5 sm:py-3 rounded-full bg-yellow-400 text-black text-xs sm:text-base font-bold hover:bg-yellow-300 transition-colors whitespace-nowrap"
                 >
                   SUBSCRIBE
                 </a>
