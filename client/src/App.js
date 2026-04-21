@@ -5,7 +5,6 @@ import HeaderPoster from './visitor/components/HeaderPoster';
 import NavComp from './visitor/components/NavComp';
 import Footer from './visitor/components/Footer';
 import EmailCapture from './visitor/components/EmailCapture';
-import EmailCaptureBanner from './visitor/components/EmailCaptureBanner';
 import Home from './visitor/pages/Home';
 import About from './visitor/pages/About';
 import Services from './visitor/pages/Services';
@@ -34,9 +33,6 @@ const ProtectedRoute = ({ children }) => {
 const Layout = ({ children, showHeaderPoster = true }) => {
   return (
     <div className="w-full min-h-screen relative">
-      {/* Email Capture Banner */}
-      <EmailCaptureBanner />
-
       {/* Container with flex order - Nav on top for mobile, HeaderPoster on top for desktop */}
       <div className="flex flex-col">
         {/* Nav - appears first on mobile, second on desktop, sticky when scrolling */}

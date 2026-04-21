@@ -9,9 +9,17 @@ const EmailCapture = () => {
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
 
-  // Show modal after 3 seconds or if user hasn't subscribed
+  const openModal = () => {
+    const hasSubscribed = localStorage.getItem('emailSubscribed');
+    if (!hasSubscribed) setShowModal(true);
+  };
+
+  // Show modal after 3 seconds if user hasn't subscribed (and didn't dismiss)
   useEffect(() => {
     const hasSubscribed = localStorage.getItem('emailSubscribed');
+    const modalClosed = sessionStorage.getItem('emailModalClosed');
+    if (hasSubscribed || modalClosed) return;
+
     const timer = setTimeout(() => {
       if (!hasSubscribed) {
         setShowModal(true);
@@ -19,6 +27,13 @@ const EmailCapture = () => {
     }, 3000);
 
     return () => clearTimeout(timer);
+  }, []);
+
+  // Allow other components to open this modal
+  useEffect(() => {
+    const handler = () => openModal();
+    window.addEventListener('open-email-capture', handler);
+    return () => window.removeEventListener('open-email-capture', handler);
   }, []);
 
   const handleSubmit = async (e) => {
