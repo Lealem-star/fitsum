@@ -3,6 +3,9 @@ import api from '../../config/api';
 import { getImageUrl } from '../../utils/imageUrl';
 import mahletImage from '../../assets/fitsumf.png';
 import nikuLogo from '../../assets/niku-removebg-preview.png';
+import fitsum3Image from '../../assets/fitsum3.png';
+import beAGuestImage from '../../assets/invite.png';
+import SponsorModal from '../components/SponsorModal';
 
 const Home = () => {
   // Hero carousel state
@@ -12,6 +15,9 @@ const Home = () => {
   const [sponsorLoading, setSponsorLoading] = useState(false);
   const [sponsorSuccess, setSponsorSuccess] = useState('');
   const [sponsorError, setSponsorError] = useState('');
+  const [youtubePosts, setYoutubePosts] = useState([]);
+  const [youtubeLoading, setYoutubeLoading] = useState(true);
+  const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [sponsorForm, setSponsorForm] = useState({
     name: '',
     organization: '',
@@ -43,6 +49,78 @@ const Home = () => {
 
     fetchHeroImages();
   }, []);
+
+  useEffect(() => {
+    const fetchYoutubePosts = async () => {
+      try {
+        setYoutubeLoading(true);
+        const res = await api.get('/api/latest-posts');
+        const data = Array.isArray(res.data) ? res.data : [];
+        const youtubeOnly = data.filter((p) => p?.type === 'youtube' && p?.mediaUrl);
+        const sorted = [...youtubeOnly].sort((a, b) => {
+          const aDate = a.createdAt ? new Date(a.createdAt).getTime() : 0;
+          const bDate = b.createdAt ? new Date(b.createdAt).getTime() : 0;
+          return bDate - aDate;
+        });
+        setYoutubePosts(sorted.slice(0, 20));
+      } catch (error) {
+        console.error('Error fetching YouTube posts:', error);
+        setYoutubePosts([]);
+      } finally {
+        setYoutubeLoading(false);
+      }
+    };
+
+    fetchYoutubePosts();
+  }, []);
+
+  const getYouTubeEmbedUrl = (mediaUrl) => {
+    if (!mediaUrl) return '';
+    const isFullUrl = mediaUrl.includes('youtube.com') || mediaUrl.includes('youtu.be');
+    const videoId = isFullUrl
+      ? mediaUrl
+        .replace(/.*v=/, '')
+        .replace(/.*be\//, '')
+        .split(/[?&]/)[0]
+      : mediaUrl;
+    return `https://www.youtube.com/embed/${videoId}`;
+  };
+
+  const testimonials = [
+    {
+      name: 'Sophia',
+      role: 'Listener',
+      text: 'Your message has become a part of my routine. Keep the episodes coming!',
+    },
+    {
+      name: 'John',
+      role: 'Listener',
+      text: 'The discussions are always insightful and engaging. Keep up the great work!',
+    },
+    {
+      name: 'Sarah Alemu',
+      role: 'Listener',
+      text: 'This platform inspires me to think differently and embrace new ideas.',
+    },
+    {
+      name: 'Daniel',
+      role: 'Listener',
+      text: 'Every episode leaves me with something practical to apply right away.',
+    },
+    {
+      name: 'Marta',
+      role: 'Listener',
+      text: 'I love how real and relatable the conversations are. Thank you!',
+    },
+  ];
+
+  const goToPrevTestimonial = () => {
+    setTestimonialIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  const goToNextTestimonial = () => {
+    setTestimonialIndex((prev) => (prev + 1) % testimonials.length);
+  };
 
   // Auto-rotate hero images every 3 seconds
   useEffect(() => {
@@ -169,7 +247,7 @@ const Home = () => {
                       className="w-full h-full object-contain opacity-20"
                     />
                   </div>
-                  
+
                   <div className="relative z-10">
                     <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-4 leading-[0.95]">
                       Fitsum Fiseha
@@ -230,19 +308,55 @@ const Home = () => {
         )}
       </section>
 
-      {/* after hero section */}
+
+
+      {/* about section */}
+      <section className="w-full px-4 sm:px-6 lg:px-8 mb-10">
+        <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-8">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-black">
+              <p className="mt-2 text-gray-400/70">...</p>
+              <span className="block">
+                <span className="text-white">Who is Fitsum Fiseha?</span>
+              </span>
+              <p className="mt-2 text-gray-400/70">...</p>
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="flex justify-center lg:justify-start">
+              <img
+                src={fitsum3Image}
+                alt="Fitsum Fiseha"
+                className="w-full max-w-[520px] h-auto object-contain"
+              />
+            </div>
+            <div className="text-center lg:text-left">
+              <p className="text-base sm:text-lg leading-relaxed text-black whitespace-pre-line">
+                I help individuals overcome self-doubt, build confidence, and achieve meaningful growth.
+                Through training, speaking, and competitions, I create platforms where transformation happens.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* about anki andebetoch section */}
       <section className="w-full px-4 sm:px-6 lg:px-8 mb-8">
         <div className="max-w-7xl mx-auto p-0">
+          <div className="text-center mb-8">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-black">
+              <p className="mt-2 text-gray-400/70">...</p>
+              <span className="block">
+                <span className="text-white">ANKI ANDEBETOCH</span>
+              </span>
+              <span className="block">
+                <span className="text-yellow-500">አንቂ አንደበቶች</span>
+              </span>
+              <p className="mt-2 text-gray-400/70">...</p>
+            </h2>
+          </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="space-y-5 text-center lg:text-left">
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-black">
-                <span className="block">
-                  <span className="text-white">ANKI ANDEBETOCH</span>
-                </span>
-                <span className="block">
-                  <span className="text-yellow-500">አንቂ አንደበቶች</span>
-                </span>
-              </h2>
               <p className="text-lg sm:text-xl font-bold text-black">
                 WHERE STORIES IGNITE CHANGE!
               </p>
@@ -308,16 +422,16 @@ const Home = () => {
         <div className="max-w-7xl mx-auto rounded-2xl bg-transparent p-2 sm:p-3">
           <div className="flex flex-col md:flex-row items-stretch md:items-center gap-2 sm:gap-3">
             <div className="rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 min-h-[140px] sm:min-h-[160px] flex-1 basis-0 flex flex-col items-center justify-center text-center px-4">
-              <p className="text-4xl sm:text-5xl font-extrabold text-white">310K+</p>
-              <p className="mt-2 text-sm sm:text-base font-bold tracking-wide text-gray-400 uppercase">Subscribers</p>
+              <p className="text-4xl sm:text-5xl font-extrabold text-white">250M+</p>
+              <p className="mt-2 text-sm sm:text-base font-bold tracking-wide text-gray-400 uppercase">Lives Impacted</p>
             </div>
 
             <span className="md:hidden w-28 h-[2px] mx-auto bg-gradient-to-r from-transparent via-yellow-400 to-transparent" />
             <span className="hidden md:block w-[6px] h-20 bg-gradient-to-b from-transparent via-yellow-400 to-transparent" />
 
             <div className="rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 min-h-[140px] sm:min-h-[160px] flex-1 basis-0 flex flex-col items-center justify-center text-center px-4">
-              <p className="text-4xl sm:text-5xl font-extrabold text-white">27M+</p>
-              <p className="mt-2 text-sm sm:text-base font-bold tracking-wide text-gray-400 uppercase">Views</p>
+              <p className="text-4xl sm:text-5xl font-extrabold text-white">3+</p>
+              <p className="mt-2 text-sm sm:text-base font-bold tracking-wide text-gray-400 uppercase">Round Conducted</p>
             </div>
 
             <span className="md:hidden w-28 h-[2px] mx-auto bg-gradient-to-r from-transparent via-yellow-400 to-transparent" />
@@ -331,104 +445,202 @@ const Home = () => {
         </div>
       </section>
 
-      {/* subscribe and contact section */}
+      {/* Testimonials */}
+      <section className="w-full px-4 sm:px-6 lg:px-8 mb-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-10">
+          <p className="mt-2 text-gray-400/70">...</p>
+            <h2 className="text-4xl sm:text-5xl font-extrabold text-white">Testimonials</h2>
+            <p className="mt-2 text-sm sm:text-base text-gray-400">What Our Listeners Say About Us</p>
+            <p className="mt-2 text-gray-400/70">...</p>
+          </div>
 
-      {showSponsorModal && (
-        <div className="fixed inset-0 z-[9999] bg-black/60 flex items-center justify-center p-4">
-          <div className="w-full max-w-xl rounded-2xl bg-white shadow-2xl p-6 sm:p-7 relative">
-            <button
-              type="button"
-              onClick={closeSponsorModal}
-              className="absolute right-4 top-3 text-2xl text-gray-400 hover:text-gray-700"
-              aria-label="Close sponsor form"
-            >
-              ×
-            </button>
+          <div className="relative">
+            <div className="flex items-center justify-center">
+              <div className="relative w-full max-w-5xl h-[220px] sm:h-[240px]">
+                {[-1, 0, 1].map((offset) => {
+                  const idx = (testimonialIndex + offset + testimonials.length) % testimonials.length;
+                  const t = testimonials[idx];
+                  const isCenter = offset === 0;
+                  const xPercent = offset === 0 ? 0 : offset === -1 ? -70 : 70;
 
-            <h3 className="text-2xl font-bold text-gray-900">Become A Sponsor</h3>
-            <p className="mt-1 text-gray-600">Become a Sponsor and grow with Wechew Good!</p>
-
-            <form onSubmit={handleSponsorSubmit} className="mt-5 space-y-4">
-              {sponsorError && (
-                <div className="rounded-md border border-red-200 bg-red-50 text-red-700 px-3 py-2 text-sm">
-                  {sponsorError}
-                </div>
-              )}
-              {sponsorSuccess && (
-                <div className="rounded-md border border-green-200 bg-green-50 text-green-700 px-3 py-2 text-sm">
-                  {sponsorSuccess}
-                </div>
-              )}
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Name*</label>
-                <input
-                  type="text"
-                  name="name"
-                  value={sponsorForm.name}
-                  onChange={handleSponsorChange}
-                  required
-                  className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#61dafb]"
-                />
+                  return (
+                    <div
+                      key={`${idx}-${offset}`}
+                      className={`absolute left-1/2 top-1/2 w-[92%] sm:w-[520px] transition-all duration-500 ${
+                        isCenter ? 'z-20 opacity-100 scale-100' : 'z-10 opacity-35 scale-95'
+                      }`}
+                      style={{
+                        transform: `translate(-50%, -50%) translateX(${xPercent}%)`,
+                      }}
+                    >
+                      <div
+                        className={`rounded-2xl border border-white/10 backdrop-blur-sm shadow-xl px-6 sm:px-8 py-7 ${
+                          isCenter ? 'bg-[#20216b]' : 'bg-white/5'
+                        }`}
+                      >
+                        <div className="flex items-start gap-4">
+                          <div className="w-12 h-12 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-white font-bold">
+                            {(t.name || 'T')[0]}
+                          </div>
+                          <div className="min-w-0">
+                            <p className="text-white font-semibold leading-tight">{t.name}</p>
+                            <p className="text-xs sm:text-sm text-gray-400">{t.role}</p>
+                          </div>
+                        </div>
+                        <p className="mt-4 text-sm sm:text-base text-gray-200/90 leading-relaxed">{t.text}</p>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
+            </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Name of organization*</label>
-                <input
-                  type="text"
-                  name="organization"
-                  value={sponsorForm.organization}
-                  onChange={handleSponsorChange}
-                  required
-                  className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#61dafb]"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Phone number*</label>
-                <input
-                  type="tel"
-                  name="phone"
-                  value={sponsorForm.phone}
-                  onChange={handleSponsorChange}
-                  required
-                  className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#61dafb]"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  value={sponsorForm.email}
-                  onChange={handleSponsorChange}
-                  className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#61dafb]"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Website Link</label>
-                <input
-                  type="url"
-                  name="website"
-                  value={sponsorForm.website}
-                  onChange={handleSponsorChange}
-                  className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#61dafb]"
-                />
-              </div>
-
+            <div className="mt-8 flex items-center justify-center gap-4">
               <button
-                type="submit"
-                disabled={sponsorLoading}
-                className="w-full rounded-md bg-black text-white py-3 font-semibold hover:bg-zinc-800 transition-colors disabled:opacity-50"
+                type="button"
+                onClick={goToPrevTestimonial}
+                aria-label="Previous testimonial"
+                className="w-10 h-10 rounded-full border border-white/15 bg-black/30 hover:bg-black/45 text-white flex items-center justify-center transition-colors"
               >
-                {sponsorLoading ? 'Submitting...' : 'Submit'}
+                ‹
               </button>
-            </form>
+              <button
+                type="button"
+                onClick={goToNextTestimonial}
+                aria-label="Next testimonial"
+                className="w-10 h-10 rounded-full border border-white/15 bg-black/30 hover:bg-black/45 text-white flex items-center justify-center transition-colors"
+              >
+                ›
+              </button>
+            </div>
           </div>
         </div>
-      )}
+      </section>
+      
+
+      {/* let's add videos section here */}
+      <section className="w-full px-4 sm:px-6 lg:px-8 mb-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-8">
+            <p className="mt-2 text-gray-400/70">...</p>
+            <h2 className="text-4xl sm:text-5xl font-extrabold text-white">Videos</h2>
+            <p className="mt-2 text-sm sm:text-base text-gray-400">
+              Explore our latest videos and subscribe to our channel for more content.
+            </p>
+            <p className="mt-2 text-gray-400/70">...</p>
+          </div>
+
+          {youtubeLoading ? (
+            <div className="text-center text-amber-400/90 py-10">Loading videos...</div>
+          ) : youtubePosts.length === 0 ? (
+            <div className="text-center text-gray-400 py-10">No videos yet.</div>
+          ) : (
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {youtubePosts.map((post) => {
+                  const embedUrl = getYouTubeEmbedUrl(post.mediaUrl);
+                  return (
+                    <div
+                      key={post.id || post._id}
+                      className="overflow-hidden rounded-xl border border-white/10 bg-black/30"
+                    >
+                      <div className="relative w-full pb-[56.25%]">
+                        <iframe
+                          title={post.title || 'YouTube video'}
+                          src={embedUrl}
+                          className="absolute inset-0 w-full h-full"
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowFullScreen
+                        />
+                      </div>
+                      {post.title && (
+                        <div className="p-4">
+                          <p className="text-sm sm:text-base font-semibold text-gray-200 line-clamp-2">
+                            {post.title}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </>
+          )}
+
+          <div className="mt-8 flex justify-center">
+            <a
+              href="https://www.youtube.com/channel/UCNvHCa5hbWucXiYSuxFlqpw?sub_confirmation=1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-yellow-400 text-black text-sm sm:text-base font-bold hover:bg-yellow-300 transition-colors"
+            >
+              More
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* lets add a section for be a guest on the podcast */}
+
+      <section className="w-full mb-12">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto py-12 sm:py-16">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+
+            <div className="flex justify-center lg:justify-end">
+                <img
+                  src={beAGuestImage}
+                  alt="Be our guest"
+                  className="w-full max-w-[420px] sm:max-w-[480px] h-auto object-contain drop-shadow-2xl"
+                />
+              </div>
+
+              <div className="text-center lg:text-left">
+                <p className="text-xs sm:text-sm font-semibold tracking-[0.22em] text-black-400 uppercase">
+                  Guest invitation
+                </p>
+                <h2 className="mt-3 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.05]">
+                  Be Our Guest
+                </h2>
+                <p className="mt-5 text-sm sm:text-base text-black-300/90 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                  Do you have an inspiring story, a unique experience, or an idea worth sharing?
+                  We’d love to feature you on the podcast.
+                </p>
+
+                <div className="mt-8 flex items-center justify-center lg:justify-start">
+                  <button
+                    type="button"
+                    onClick={() => window.dispatchEvent(new Event('open-email-capture'))}
+                    className="px-8 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition-colors"
+                  >
+                    Apply
+                  </button>
+                </div>
+              </div>
+
+
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+      {/* subscribe and contact section */}
+
+      <SponsorModal
+        isOpen={showSponsorModal}
+        onClose={closeSponsorModal}
+        onSubmit={handleSponsorSubmit}
+        sponsorError={sponsorError}
+        sponsorSuccess={sponsorSuccess}
+        sponsorForm={sponsorForm}
+        onSponsorChange={handleSponsorChange}
+        sponsorLoading={sponsorLoading}
+      />
 
     </div>
   );
