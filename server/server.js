@@ -15,24 +15,31 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve uploaded files statically with proper headers for video streaming
-app.use('/uploads', express.static(path.join(__dirname, 'uploads'), {
-  setHeaders: (res, filePath) => {
-    // Set proper headers for video files to enable streaming
-    if (filePath.endsWith('.mp4')) {
-      res.setHeader('Content-Type', 'video/mp4');
-      res.setHeader('Accept-Ranges', 'bytes');
-      res.setHeader('Cache-Control', 'public, max-age=31536000');
-    } else if (filePath.endsWith('.webm')) {
-      res.setHeader('Content-Type', 'video/webm');
-      res.setHeader('Accept-Ranges', 'bytes');
-      res.setHeader('Cache-Control', 'public, max-age=31536000');
-    } else if (filePath.endsWith('.ogg')) {
-      res.setHeader('Content-Type', 'video/ogg');
-      res.setHeader('Accept-Ranges', 'bytes');
-      res.setHeader('Cache-Control', 'public, max-age=31536000');
-    }
+// Serve uploaded files statically with proper headers for video streaming.
+// Support both possible locations:
+// - repo root uploads: ../uploads
+// - server-local uploads: ./uploads
+const setUploadHeaders = (res, filePath) => {
+  if (filePath.endsWith('.mp4')) {
+    res.setHeader('Content-Type', 'video/mp4');
+    res.setHeader('Accept-Ranges', 'bytes');
+    res.setHeader('Cache-Control', 'public, max-age=31536000');
+  } else if (filePath.endsWith('.webm')) {
+    res.setHeader('Content-Type', 'video/webm');
+    res.setHeader('Accept-Ranges', 'bytes');
+    res.setHeader('Cache-Control', 'public, max-age=31536000');
+  } else if (filePath.endsWith('.ogg')) {
+    res.setHeader('Content-Type', 'video/ogg');
+    res.setHeader('Accept-Ranges', 'bytes');
+    res.setHeader('Cache-Control', 'public, max-age=31536000');
   }
+};
+
+app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads'), {
+  setHeaders: setUploadHeaders,
+}));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads'), {
+  setHeaders: setUploadHeaders,
 }));
 
 // Routes

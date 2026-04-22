@@ -7,6 +7,11 @@ const auth = require('../middleware/auth');
 const fs = require('fs');
 const path = require('path');
 
+function toDiskPathFromUploadsUrl(uploadsUrl) {
+  const normalized = String(uploadsUrl || '').replace(/^\/+/, '');
+  return path.join(__dirname, '..', '..', normalized);
+}
+
 // Helper function to check DB connection
 const isDBConnected = () => {
   return mongoose.connection.readyState === 1;
@@ -24,7 +29,7 @@ router.get('/videos', async (req, res) => {
     // Verify files exist for uploaded videos
     const verifiedVideos = videos.map(video => {
       if (video.videoUrl && video.videoUrl.startsWith('/uploads')) {
-        const filePath = path.join(__dirname, '..', video.videoUrl);
+        const filePath = toDiskPathFromUploadsUrl(video.videoUrl);
         if (!fs.existsSync(filePath)) {
           console.warn(`Video file not found: ${video.videoUrl} (ID: ${video._id})`);
           // File doesn't exist - could mark as inactive, but for now just log
@@ -93,7 +98,7 @@ router.post('/admin/videos', auth, upload.single('video'), async (req, res) => {
     
     if (req.file) {
       // Use uploaded file - verify it exists
-      const filePath = path.join(__dirname, '..', 'uploads', 'videos', req.file.filename);
+      const filePath = path.join(__dirname, '..', '..', 'uploads', 'videos', req.file.filename);
       if (!fs.existsSync(filePath)) {
         console.error('Uploaded file not found at:', filePath);
         return res.status(500).json({ message: 'File upload failed - file not found on server' });
@@ -147,7 +152,7 @@ router.put('/admin/videos/:id', auth, upload.single('video'), async (req, res) =
     if (req.file) {
       // Delete old file if it was an uploaded file (starts with /uploads)
       if (video.videoUrl && video.videoUrl.startsWith('/uploads')) {
-        const oldFilePath = path.join(__dirname, '..', video.videoUrl);
+        const oldFilePath = toDiskPathFromUploadsUrl(video.videoUrl);
         if (fs.existsSync(oldFilePath)) {
           fs.unlinkSync(oldFilePath);
         }
@@ -188,7 +193,7 @@ router.delete('/admin/videos/:id', auth, async (req, res) => {
 
     // Delete the file if it was an uploaded file
     if (video.videoUrl && video.videoUrl.startsWith('/uploads')) {
-      const filePath = path.join(__dirname, '..', video.videoUrl);
+      const filePath = toDiskPathFromUploadsUrl(video.videoUrl);
       if (fs.existsSync(filePath)) {
         fs.unlinkSync(filePath);
       }

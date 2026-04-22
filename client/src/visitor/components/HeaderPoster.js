@@ -9,12 +9,6 @@ const HeaderPoster = () => {
     const [loading, setLoading] = useState(true);
     const [videoErrors, setVideoErrors] = useState({ left: false, right: false });
 
-    // Fallback assets
-    const fallbackTrailerVideo = '/assets/trailer.mp4'; // Assuming path
-    const fallbackLemlemVideo = '/assets/lemlem.mp4'; // Assuming path
-    const fallbackAyrakLandscape = '/assets/ayrak-landscape.jpg'; // Assuming path
-    const fallbackMoviesAbout = '/assets/moviesabout.jpg'; // Assuming path
-
     // Helper function to check if URL is YouTube
     const isYouTubeUrl = (url) => {
         if (!url) return false;
@@ -109,7 +103,7 @@ const HeaderPoster = () => {
                 const imageUrls = imagesResponse.data.map(img => getImageUrl(img.imageUrl));
                 setImages(imageUrls);
             } else {
-                setImages([fallbackAyrakLandscape, fallbackMoviesAbout]); // Fallback images
+                setImages([]);
             }
 
             // Fetch videos
@@ -140,12 +134,13 @@ const HeaderPoster = () => {
                 setVideos(videosObj);
                 console.log('HeaderPoster videos loaded:', videosObj);
             } else {
-                console.log('HeaderPoster: No videos found in database, using fallback');
-                setVideos({ left: fallbackTrailerVideo, right: fallbackLemlemVideo }); // Fallback videos
+                console.log('HeaderPoster: No videos found in database');
+                setVideos({ left: null, right: null });
             }
         } catch (error) {
             console.error('Error fetching data:', error);
             setImages([]);
+            setVideos({ left: null, right: null });
         } finally {
             setLoading(false);
         }

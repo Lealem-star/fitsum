@@ -4,11 +4,19 @@ const mongoose = require('mongoose');
 const HeroImage = require('../models/HeroImage');
 const upload = require('../config/upload');
 const auth = require('../middleware/auth');
+const path = require('path');
 
 // Helper function to check DB connection
 const isDBConnected = () => {
   return mongoose.connection.readyState === 1;
 };
+
+function toDiskPathFromUploadsUrl(uploadsUrl) {
+  // Expected: /uploads/images/<file> or /uploads/videos/<file>
+  // Make it safe on Windows where a leading "/" would reset path.join()
+  const normalized = String(uploadsUrl || '').replace(/^\/+/, '');
+  return path.join(__dirname, '..', '..', normalized);
+}
 
 // Public: get active hero images for home page
 router.get('/images', async (req, res) => {
@@ -109,7 +117,6 @@ router.put('/admin/images/:id', auth, upload.single('image'), async (req, res) =
   try {
     const { imageUrl, altText, order, isActive } = req.body;
     const fs = require('fs');
-    const path = require('path');
 
     const image = await HeroImage.findById(req.params.id);
     if (!image) {
@@ -118,7 +125,7 @@ router.put('/admin/images/:id', auth, upload.single('image'), async (req, res) =
 
     if (req.file) {
       if (image.imageUrl && image.imageUrl.startsWith('/uploads')) {
-        const oldFilePath = path.join(__dirname, '..', image.imageUrl);
+        const oldFilePath = toDiskPathFromUploadsUrl(image.imageUrl);
         if (fs.existsSync(oldFilePath)) {
           fs.unlinkSync(oldFilePath);
         }
@@ -150,7 +157,6 @@ router.delete('/admin/images/:id', auth, async (req, res) => {
 
   try {
     const fs = require('fs');
-    const path = require('path');
 
     const image = await HeroImage.findById(req.params.id);
     if (!image) {
@@ -158,7 +164,7 @@ router.delete('/admin/images/:id', auth, async (req, res) => {
     }
 
     if (image.imageUrl && image.imageUrl.startsWith('/uploads')) {
-      const filePath = path.join(__dirname, '..', image.imageUrl);
+      const filePath = toDiskPathFromUploadsUrl(image.imageUrl);
       if (fs.existsSync(filePath)) {
         fs.unlinkSync(filePath);
       }
