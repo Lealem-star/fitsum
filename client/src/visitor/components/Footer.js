@@ -100,6 +100,30 @@ const Footer = () => {
     return (
         <footer className="bg-[#0d0d0d] text-gray-400 mt-16 relative z-10 border-t border-neutral-800">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-16">
+                {/* Top centered social intro */}
+                <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12 space-y-2">
+                    <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
+                        Follow Us On Social Media
+                    </h2>
+                    <p className="mt-4 text-base sm:text-lg leading-relaxed text-gray-400">
+                        We aspire to be the place where new ideas flourish and help cultivate them in way the generation can benefit from them.
+                    </p>
+                    <div className="mt-6 flex items-center justify-center gap-5">
+                        {heroIcons.map(({ href, label, icon, className }) => (
+                            <a
+                                key={`top-${label}`}
+                                href={href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={label}
+                                className={`transition-colors duration-300 ${className}`}
+                            >
+                                {icon}
+                            </a>
+                        ))}
+                    </div>
+                </div>
+
                 {/* Mobile: portrait as background behind brand + cards below */}
                 <div className="flex flex-col items-center text-center gap-10 lg:hidden">
                     <div

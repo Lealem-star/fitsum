@@ -2,12 +2,23 @@ import React, { useState, useEffect } from 'react';
 import api from '../../config/api';
 import { getImageUrl } from '../../utils/imageUrl';
 import mahletImage from '../../assets/fitsumf.png';
-import nikuLogo from '../../assets/niku.jpg';
+import nikuLogo from '../../assets/niku-removebg-preview.png';
 
 const Home = () => {
   // Hero carousel state
   const [heroImages, setHeroImages] = useState([]);
   const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
+  const [showSponsorModal, setShowSponsorModal] = useState(false);
+  const [sponsorLoading, setSponsorLoading] = useState(false);
+  const [sponsorSuccess, setSponsorSuccess] = useState('');
+  const [sponsorError, setSponsorError] = useState('');
+  const [sponsorForm, setSponsorForm] = useState({
+    name: '',
+    organization: '',
+    phone: '',
+    email: '',
+    website: '',
+  });
 
   // Fetch hero images
   useEffect(() => {
@@ -54,6 +65,66 @@ const Home = () => {
     setCurrentHeroIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
   };
 
+  const openSponsorModal = () => {
+    setShowSponsorModal(true);
+    setSponsorSuccess('');
+    setSponsorError('');
+  };
+
+  const closeSponsorModal = () => {
+    setShowSponsorModal(false);
+    setSponsorLoading(false);
+    setSponsorError('');
+    setSponsorSuccess('');
+  };
+
+  const handleSponsorChange = (e) => {
+    const { name, value } = e.target;
+    setSponsorForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSponsorSubmit = async (e) => {
+    e.preventDefault();
+    setSponsorError('');
+    setSponsorSuccess('');
+    setSponsorLoading(true);
+
+    try {
+      const emailForSubmit =
+        sponsorForm.email?.trim() || `sponsor-${Date.now()}@placeholder.local`;
+      const notes = [
+        `Organization: ${sponsorForm.organization}`,
+        `Phone: ${sponsorForm.phone}`,
+        sponsorForm.website ? `Website: ${sponsorForm.website}` : null,
+      ]
+        .filter(Boolean)
+        .join('\n');
+
+      await api.post('/api/subscribers/subscribe', {
+        name: sponsorForm.name,
+        email: emailForSubmit,
+        source: 'partner',
+        notes,
+      });
+
+      setSponsorSuccess('Thanks! Your sponsorship interest has been submitted.');
+      setSponsorForm({
+        name: '',
+        organization: '',
+        phone: '',
+        email: '',
+        website: '',
+      });
+      setTimeout(() => setShowSponsorModal(false), 1200);
+    } catch (error) {
+      setSponsorError(
+        error.response?.data?.message || 'Failed to submit sponsorship request. Please try again.'
+      );
+    } finally {
+      setSponsorLoading(false);
+    }
+  };
+
   return (
     <div className="w-full">
 
@@ -98,6 +169,7 @@ const Home = () => {
                       className="w-full h-full object-contain opacity-20"
                     />
                   </div>
+                  
                   <div className="relative z-10">
                     <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-4 leading-[0.95]">
                       Fitsum Fiseha
@@ -115,6 +187,7 @@ const Home = () => {
                       <span className="text-lg">›</span>
                     </button>
                   </div>
+
                 </div>
               </div>
             </div>
@@ -201,6 +274,7 @@ const Home = () => {
               <div className="flex flex-row flex-wrap items-center justify-center lg:justify-start gap-3 pt-1">
                 <button
                   type="button"
+                  onClick={openSponsorModal}
                   className="inline-flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full bg-black text-white text-xs sm:text-base font-semibold hover:bg-zinc-800 transition-colors whitespace-nowrap"
                 >
                   BECOME A SPONSOR
@@ -258,6 +332,103 @@ const Home = () => {
       </section>
 
       {/* subscribe and contact section */}
+
+      {showSponsorModal && (
+        <div className="fixed inset-0 z-[9999] bg-black/60 flex items-center justify-center p-4">
+          <div className="w-full max-w-xl rounded-2xl bg-white shadow-2xl p-6 sm:p-7 relative">
+            <button
+              type="button"
+              onClick={closeSponsorModal}
+              className="absolute right-4 top-3 text-2xl text-gray-400 hover:text-gray-700"
+              aria-label="Close sponsor form"
+            >
+              ×
+            </button>
+
+            <h3 className="text-2xl font-bold text-gray-900">Become A Sponsor</h3>
+            <p className="mt-1 text-gray-600">Become a Sponsor and grow with Wechew Good!</p>
+
+            <form onSubmit={handleSponsorSubmit} className="mt-5 space-y-4">
+              {sponsorError && (
+                <div className="rounded-md border border-red-200 bg-red-50 text-red-700 px-3 py-2 text-sm">
+                  {sponsorError}
+                </div>
+              )}
+              {sponsorSuccess && (
+                <div className="rounded-md border border-green-200 bg-green-50 text-green-700 px-3 py-2 text-sm">
+                  {sponsorSuccess}
+                </div>
+              )}
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Name*</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={sponsorForm.name}
+                  onChange={handleSponsorChange}
+                  required
+                  className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#61dafb]"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Name of organization*</label>
+                <input
+                  type="text"
+                  name="organization"
+                  value={sponsorForm.organization}
+                  onChange={handleSponsorChange}
+                  required
+                  className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#61dafb]"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Phone number*</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={sponsorForm.phone}
+                  onChange={handleSponsorChange}
+                  required
+                  className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#61dafb]"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={sponsorForm.email}
+                  onChange={handleSponsorChange}
+                  className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#61dafb]"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Website Link</label>
+                <input
+                  type="url"
+                  name="website"
+                  value={sponsorForm.website}
+                  onChange={handleSponsorChange}
+                  className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#61dafb]"
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={sponsorLoading}
+                className="w-full rounded-md bg-black text-white py-3 font-semibold hover:bg-zinc-800 transition-colors disabled:opacity-50"
+              >
+                {sponsorLoading ? 'Submitting...' : 'Submit'}
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
 
     </div>
   );
