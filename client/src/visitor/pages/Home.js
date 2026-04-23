@@ -653,7 +653,7 @@ const Home = () => {
                 <div className="mt-8 flex items-center justify-center lg:justify-start">
                   <button
                     type="button"
-                    onClick={() => window.dispatchEvent(new Event('open-email-capture'))}
+                    onClick={() => navigate('/contact')}
                     className="px-8 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition-colors"
                   >
                     Apply

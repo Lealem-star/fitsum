@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import api from '../../config/api';
-import portraitPrimary from '../../assets/invite.png';
+import portraitPrimary from '../../assets/invite1.png';
 
 const Contact = () => {
     const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
@@ -119,7 +119,7 @@ const Contact = () => {
                                     onChange={handleChange}
                                     rows={4}
                                     className="w-full px-3 py-2.5 sm:px-4 sm:py-3 text-sm sm:text-base border border-white/25 rounded-lg sm:rounded-xl bg-transparent text-black placeholder-black/60 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400 resize-none"
-                                    placeholder="Comment or Message"
+                                    placeholder="tell us about yourself and why you want to be a guest on the Niku Podcast"
                                 />
                             </div>
                             <button

@@ -84,6 +84,10 @@ const About = () => {
                 }
             `}</style>
 
+            <div className="text-center pt-8 pb-2">
+                <h1 className="text-4xl sm:text-5xl font-extrabold text-white">Who am I ?</h1>
+            </div>
+
             {/* Hero Image Section */}
             <section className="py-16 px-5 bg-white/10 backdrop-blur-sm rounded-lg mx-4 mb-8 relative overflow-hidden border border-white/30">
                 <AnimatedIcon icon="camera" className="top-4 left-4" delay={0} />
@@ -121,18 +125,9 @@ const About = () => {
                                     Through transformative workshops, one-on-one coaching, and powerful motivational speeches, I guide people on their path to self-discovery and growth. My approach combines practical strategies with inspirational insights, creating an environment where transformation is not just possible—it's inevitable.
                                 </p>
 
-                                <p>
-                                    I am the proud creator of "አንቂ አንደበቶች" (Anki Andebetoch), the first Ethiopian motivational speech competition. This groundbreaking initiative provides a platform for aspiring speakers to share their stories, inspire others, and develop their public speaking skills. Through this competition, I continue to foster a culture of empowerment and self-expression across Ethiopia.
-                                </p>
 
-                                <div className="pt-4 border-t border-black/20">
-                                    <p className="text-base font-bold text-black mb-2">
-                                        Explore my work in detail below
-                                    </p>
-                                    <p className="text-sm text-black italic">
-                                        Learn more about my personal development training, motivational speaking, and the "አንቂ አንደበቶች" competition in the sections below.
-                                    </p>
-                                </div>
+
+
                             </div>
                         </div>
                     </div>
