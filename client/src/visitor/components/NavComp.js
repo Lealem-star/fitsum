@@ -29,9 +29,9 @@ const IconContact = ({ className = 'w-4 h-4' }) => (
   </svg>
 );
 
-const IconArrowCircle = ({ className = 'w-4 h-4' }) => (
-  <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+const IconYouTube = ({ className = 'w-4 h-4' }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+    <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
   </svg>
 );
 
@@ -115,7 +115,7 @@ const NavComp = () => {
               className="inline-flex items-center gap-2 rounded-full bg-neutral-800 hover:bg-neutral-700 text-white text-sm font-medium px-4 py-2 no-underline transition-colors border border-neutral-600"
             >
               Follow Us
-              <IconArrowCircle className="w-4 h-4" />
+              <IconYouTube className="w-4 h-4 text-red-500" />
             </a>
           </div>
 
@@ -196,7 +196,7 @@ const NavComp = () => {
                 className="flex w-full items-center justify-center gap-2 rounded-full bg-neutral-800 hover:bg-neutral-700 text-white text-sm font-medium py-3 no-underline border border-neutral-600"
               >
                 Follow Us
-                <IconArrowCircle className="w-4 h-4" />
+                <IconYouTube className="w-4 h-4 text-red-500" />
               </a>
             </li>
             {isAuthenticated && (

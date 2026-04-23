@@ -368,6 +368,14 @@ const Home = () => {
                 I help individuals overcome self-doubt, build confidence, and achieve meaningful growth.
                 Through training, speaking, and competitions, I create platforms where transformation happens.
               </p>
+              <button
+                type="button"
+                onClick={() => navigate('/about')}
+                className="mt-4 inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-black text-white text-sm sm:text-base font-semibold hover:bg-zinc-800 transition-colors"
+              >
+                More About Me
+                <span className="text-lg">›</span>
+              </button>
             </div>
           </div>
         </div>
@@ -435,7 +443,7 @@ const Home = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center px-5 sm:px-8 py-2.5 sm:py-3 rounded-full bg-yellow-400 text-black text-xs sm:text-base font-bold hover:bg-yellow-300 transition-colors whitespace-nowrap"
                 >
-                  SUBSCRIBE
+                  WATCH ANKI ANDEBETOCH
                 </a>
               </div>
             </div>
