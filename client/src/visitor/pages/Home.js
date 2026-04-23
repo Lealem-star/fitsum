@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import api from '../../config/api';
 import { getImageUrl } from '../../utils/imageUrl';
 import mahletImage from '../../assets/fitsumf.png';
@@ -8,6 +9,7 @@ import beAGuestImage from '../../assets/invite.png';
 import SponsorModal from '../components/SponsorModal';
 
 const Home = () => {
+  const navigate = useNavigate();
   // Hero carousel state
   const [heroImages, setHeroImages] = useState([]);
   const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
@@ -143,6 +145,30 @@ const Home = () => {
     setCurrentHeroIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
   };
 
+  const heroCtas = [
+    {
+      label: 'Join My Mailing',
+      action: () => window.dispatchEvent(new Event('open-email-capture')),
+    },
+    {
+      label: 'Be My Guest',
+      action: () => navigate('/contact'),
+    },
+    {
+      label: 'Be Sponsor',
+      action: () => setShowSponsorModal(true),
+    },
+    {
+      label: 'Watch on YouTube',
+      action: () =>
+        window.open(
+          'https://www.youtube.com/channel/UCNvHCa5hbWucXiYSuxFlqpw?sub_confirmation=1',
+          '_blank',
+          'noopener,noreferrer'
+        ),
+    },
+  ];
+
   const openSponsorModal = () => {
     setShowSponsorModal(true);
     setSponsorSuccess('');
@@ -248,20 +274,27 @@ const Home = () => {
                     />
                   </div>
 
-                  <div className="relative z-10">
-                    <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-4 leading-[0.95]">
+                  <div className="relative z-10 animate-hero-intro" key={`hero-intro-${currentHeroIndex}`}>
+                    <h1
+                      className="text-5xl md:text-7xl font-extrabold text-white mb-4 leading-[0.95]"
+                      style={{ animationDelay: '0ms' }}
+                    >
                       Fitsum Fiseha
                     </h1>
-                    <p className="text-base md:text-lg text-white/90 mb-8 max-w-xl leading-relaxed">
+                    <p
+                      className="text-base md:text-lg text-white/90 mb-8 max-w-xl leading-relaxed"
+                      style={{ animationDelay: '120ms' }}
+                    >
                       Personal Development Trainer | Motivational Speaker | Competition Creator
                     </p>
                     <button
                       onClick={() => {
-                        window.dispatchEvent(new Event('open-email-capture'));
+                        heroCtas[currentHeroIndex % heroCtas.length].action();
                       }}
                       className="inline-flex items-center gap-2 px-8 py-3 bg-black text-white font-semibold text-base rounded-full border border-white/20 hover:bg-zinc-800 transition-colors duration-300"
+                      style={{ animationDelay: '220ms' }}
                     >
-                      Join My Mailing
+                      {heroCtas[currentHeroIndex % heroCtas.length].label}
                       <span className="text-lg">›</span>
                     </button>
                   </div>

@@ -8,7 +8,6 @@ import EmailCapture from './visitor/components/EmailCapture';
 import Home from './visitor/pages/Home';
 import About from './visitor/pages/About';
 import Services from './visitor/pages/Services';
-import Latest from './visitor/pages/Latest';
 import Contact from './visitor/pages/Contact';
 import Login from './adminControl/comp/Login';
 import AdminDashboard from './adminControl/pages/AdminDashboard';
@@ -90,14 +89,6 @@ function App() {
             element={
               <Layout showHeaderPoster={false}>
                 <Services />
-              </Layout>
-            }
-          />
-          <Route
-            path="/latest"
-            element={
-              <Layout showHeaderPoster={false}>
-                <Latest />
               </Layout>
             }
           />
