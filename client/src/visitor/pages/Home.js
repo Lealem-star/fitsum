@@ -623,6 +623,46 @@ const Home = () => {
         </div>
       </section>
 
+      {/* let's add sponsor section here */}
+      <section className="w-full px-4 sm:px-6 lg:px-8 mb-12">
+        <div className="max-w-7xl mx-auto rounded-2xl py-10 sm:py-12 px-4 sm:px-8 text-center">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-white">
+            <span className="text-yellow-400">Become a Sponsor</span> and grow with Wechew Good!
+          </h2>
+          <p className="mt-5 max-w-3xl mx-auto text-base sm:text-lg text-gray-300 leading-relaxed">
+            Partner with Ethiopia&apos;s most vibrant podcast to reach a passionate, engaged audience.
+            Let&apos;s create impact together.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <button
+              type="button"
+              onClick={openSponsorModal}
+              className="inline-flex items-center gap-2 rounded-lg bg-yellow-400 px-5 py-3 text-sm sm:text-base font-bold text-black transition hover:bg-yellow-300"
+            >
+              <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current">
+                <path d="M20 7h-2.2a3 3 0 0 0 .2-1c0-1.7-1.3-3-3-3-1.8 0-2.8 1.4-3.5 2.8C10.8 4.4 9.8 3 8 3 6.3 3 5 4.3 5 6c0 .4.1.7.2 1H3a1 1 0 0 0-1 1v3c0 .6.4 1 1 1h1v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7h1a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1zM15 5c.6 0 1 .4 1 1s-.4 1-1 1h-2V6c.5-.7 1-1 2-1zM8 5c1 0 1.5.3 2 1v1H8a1 1 0 0 1 0-2zm-3 4h14v2H5V9zm1 4h5v6H6v-6zm7 0h5v6h-5v-6z" />
+              </svg>
+              Contact for Sponsorship
+            </button>
+            <a
+              href="https://www.youtube.com/channel/UCNvHCa5hbWucXiYSuxFlqpw?sub_confirmation=1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/5 px-5 py-3 text-sm sm:text-base font-semibold text-white transition hover:bg-white/10"
+            >
+              <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current">
+                <path d="M22 12c0-2.1-.2-3.6-.6-4.5a2.9 2.9 0 0 0-1.7-1.7C18.8 5.4 17.3 5.2 12 5.2s-6.8.2-7.7.6a2.9 2.9 0 0 0-1.7 1.7C2.2 8.4 2 9.9 2 12s.2 3.6.6 4.5a2.9 2.9 0 0 0 1.7 1.7c.9.4 2.4.6 7.7.6s6.8-.2 7.7-.6a2.9 2.9 0 0 0 1.7-1.7c.4-.9.6-2.4.6-4.5zM10 15.5v-7l6 3.5-6 3.5z" />
+              </svg>
+              See Our Channel
+            </a>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
       {/* lets add a section for be a guest on the podcast */}
 
       <section className="w-full mb-12">
