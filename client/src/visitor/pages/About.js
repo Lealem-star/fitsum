@@ -1,6 +1,6 @@
 import React from 'react';
-import portraitPrimary from '../../assets/fitsumf.png';
-import portraitSecondary from '../../assets/fitsumf.png';
+import portraitPrimary from '../../assets/fitsum.png';
+import portraitSecondary from '../../assets/fitsum3.png';
 
 // Animated Movie & Theatre Icons Component
 const AnimatedIcon = ({ icon, className = '', delay = 0 }) => {
@@ -89,7 +89,7 @@ const About = () => {
             </div>
 
             {/* Hero Image Section */}
-            <section className="py-16 px-5 bg-white/10 backdrop-blur-sm rounded-lg mx-4 mb-8 relative overflow-hidden border border-white/30">
+            <section className="py-16 px-5 mx-4 mb-8 relative overflow-hidden">
                 <AnimatedIcon icon="camera" className="top-4 left-4" delay={0} />
                 <AnimatedIcon icon="film" className="top-4 right-4" delay={1} />
                 <AnimatedIcon icon="mask" className="bottom-4 left-8" delay={2} />
@@ -97,7 +97,7 @@ const About = () => {
                     <div className="grid md:grid-cols-2 gap-12 items-start">
                         {/* Left: Image */}
                         <div className="flex justify-center md:justify-start">
-                            <div className="relative rounded-2xl overflow-hidden shadow-xl w-full max-w-md">
+                            <div className="relative overflow-hidden w-full max-w-md">
                                 <img
                                     src={portraitPrimary}
                                     alt="Fitsum Fiseha"
@@ -135,7 +135,7 @@ const About = () => {
             </section>
 
             {/* Personal Development Training Section */}
-            <section className="py-16 px-5 bg-white/10 backdrop-blur-sm rounded-lg mx-4 mb-6 relative overflow-hidden border border-white/30">
+            <section className="py-16 px-5 mx-4 mb-6 relative overflow-hidden">
                 <AnimatedIcon icon="stage" className="top-8 left-8" delay={0.5} />
                 <AnimatedIcon icon="spotlight" className="top-8 right-8" delay={1.5} />
                 <div className="max-w-6xl mx-auto relative z-10">
@@ -152,7 +152,7 @@ const About = () => {
                                 Whether working with individuals or groups, I focus on practical, actionable strategies that can be immediately applied to create positive change in both personal and professional lives.
                             </p>
                         </div>
-                        <div className="relative rounded-2xl overflow-hidden shadow-xl">
+                        <div className="relative overflow-hidden">
                             <img
                                 src={portraitPrimary}
                                 alt="Fitsum Fiseha personal development training"
@@ -164,13 +164,13 @@ const About = () => {
             </section>
 
             {/* አንቂ አንደበቶች Competition Section */}
-            <section className="py-16 px-5 bg-white/10 backdrop-blur-sm text-black rounded-lg mx-4 mb-6 relative overflow-hidden border border-white/30">
+            <section className="py-16 px-5 text-black mx-4 mb-6 relative overflow-hidden">
                 <AnimatedIcon icon="spotlight" className="top-20 left-20" delay={1.6} />
                 <AnimatedIcon icon="clapperboard" className="bottom-20 right-20" delay={3.2} />
                 <div className="max-w-6xl mx-auto relative z-10">
                     <h2 className="text-4xl font-bold mb-8 text-center">አንቂ አንደበቶች - The First Ethiopian Motivational Speech Competition</h2>
                     <div className="grid md:grid-cols-2 gap-8 items-center">
-                        <div className="relative rounded-2xl overflow-hidden shadow-xl">
+                        <div className="relative overflow-hidden">
                             <img
                                 src={portraitSecondary}
                                 alt="አንቂ አንደበቶች competition"
@@ -193,7 +193,7 @@ const About = () => {
             </section>
 
             {/* Motivational Speaking Section */}
-            <section className="py-16 px-5 bg-white/10 backdrop-blur-sm rounded-lg mx-4 mb-6 relative overflow-hidden border border-white/30">
+            <section className="py-16 px-5 mx-4 mb-6 relative overflow-hidden">
                 <AnimatedIcon icon="camera" className="top-24 left-24" delay={2} />
                 <AnimatedIcon icon="stage" className="bottom-24 right-24" delay={3.6} />
                 <div className="max-w-6xl mx-auto relative z-10">
@@ -208,7 +208,7 @@ const About = () => {
                             const videoId = getYouTubeId(videoUrl);
                             if (!videoId) return null;
                             return (
-                                <div key={index} className="relative rounded-xl overflow-hidden shadow-lg bg-black">
+                                <div key={index} className="relative overflow-hidden bg-black">
                                     <div className="relative w-full pb-[56.25%]">
                                         <iframe
                                             title={`Motivational Speech Video ${index + 1}`}
@@ -227,7 +227,7 @@ const About = () => {
             </section>
 
             {/* My Interviews Section */}
-            <section className="py-16 px-5 bg-white/10 backdrop-blur-sm text-black rounded-lg mx-4 mb-6 relative overflow-hidden border border-white/30">
+            <section className="py-16 px-5 text-black mx-4 mb-6 relative overflow-hidden">
                 <AnimatedIcon icon="film" className="top-28 left-28" delay={2.4} />
                 <AnimatedIcon icon="mask" className="bottom-28 right-28" delay={4} />
                 <AnimatedIcon icon="spotlight" className="top-1/2 left-8" delay={1.8} />
@@ -244,7 +244,7 @@ const About = () => {
                             const videoId = getYouTubeId(videoUrl);
                             if (!videoId) return null;
                             return (
-                                <div key={index} className="relative rounded-xl overflow-hidden shadow-lg bg-black">
+                                <div key={index} className="relative overflow-hidden bg-black">
                                     <div className="relative w-full pb-[56.25%]">
                                         <iframe
                                             title={`Interview Video ${index + 1}`}
