@@ -269,13 +269,62 @@ const About = () => {
                 </div>
             </section>
 
+            {/* add mission and vision section here */}
+            <section className="py-16 px-5 mx-4 mb-6 relative overflow-hidden">
+                <div className="max-w-6xl mx-auto">
+                    <div className="text-center mb-10">
+                        <h2 className="text-4xl sm:text-5xl font-extrabold text-white">Our Mission</h2>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center">
+                            <div className="mx-auto mb-5 inline-flex h-14 w-14 items-center justify-center rounded-full bg-white/10 text-yellow-400">
+                                <svg viewBox="0 0 24 24" className="h-6 w-6 fill-current">
+                                    <path d="M12 3c5 0 9 3.6 9 8 0 4.8-4.5 8.5-8.8 9.8a1 1 0 0 1-.4 0C7.5 19.5 3 15.8 3 11c0-4.4 4-8 9-8zm0 2c-3.9 0-7 2.7-7 6 0 3.5 3.3 6.4 7 7.7 3.7-1.3 7-4.2 7-7.7 0-3.3-3.1-6-7-6zm-1.2 3.8h2.4v2.4h-2.4V8.8zm0 3.6h2.4v2.8h-2.4v-2.8z" />
+                                </svg>
+                            </div>
+                            <h3 className="text-2xl font-bold text-white mb-3">Create Space for Ideas</h3>
+                            <p className="text-gray-300 text-base leading-relaxed">
+                                To create a space where ideas flourish and meaningful discussions thrive.
+                            </p>
+                        </div>
+
+                        <div className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center">
+                            <div className="mx-auto mb-5 inline-flex h-14 w-14 items-center justify-center rounded-full bg-white/10 text-yellow-400">
+                                <svg viewBox="0 0 24 24" className="h-6 w-6 fill-current">
+                                    <path d="M9 11a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm8 2a3 3 0 1 1 0-6 3 3 0 0 1 0 6zM9 13c2.8 0 8 1.4 8 4v2H1v-2c0-2.6 5.2-4 8-4zm8 1c1.8 0 5 .9 5 2.7V19h-4v-2c0-1.1-.5-2.2-1.6-3 .6 0 1.1 0 1.6 0z" />
+                                </svg>
+                            </div>
+                            <h3 className="text-2xl font-bold text-white mb-3">Diverse Voices</h3>
+                            <p className="text-gray-300 text-base leading-relaxed">
+                                To bring diverse voices and perspectives to the forefront.
+                            </p>
+                        </div>
+
+                        <div className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center">
+                            <div className="mx-auto mb-5 inline-flex h-14 w-14 items-center justify-center rounded-full bg-white/10 text-yellow-400">
+                                <svg viewBox="0 0 24 24" className="h-6 w-6 fill-current">
+                                    <path d="M12 3a6 6 0 0 0-6 6v4a3 3 0 0 0 3 3h.3l1 4h3.4l1-4h.3a3 3 0 0 0 3-3V9a6 6 0 0 0-6-6zm-4 9V9a4 4 0 1 1 8 0v3h-1v-3a3 3 0 1 0-6 0v3H8z" />
+                                </svg>
+                            </div>
+                            <h3 className="text-2xl font-bold text-white mb-3">Inspire Generation</h3>
+                            <p className="text-gray-300 text-base leading-relaxed">
+                                To entertain, educate, and inspire the new generation.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* My Interviews Section */}
             <section className="py-16 px-5 text-black mx-4 mb-6 relative overflow-hidden">
                 <AnimatedIcon icon="film" className="top-28 left-28" delay={2.4} />
                 <AnimatedIcon icon="mask" className="bottom-28 right-28" delay={4} />
                 <AnimatedIcon icon="spotlight" className="top-1/2 left-8" delay={1.8} />
                 <div className="max-w-6xl mx-auto relative z-10">
-                    <h2 className="text-4xl font-bold mb-8 text-center">My Interviews</h2>
+                    <div className="text-center mb-10">
+                        <h2 className="text-4xl sm:text-5xl font-extrabold text-white">My Interviews</h2>
+                    </div>
                     <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
                         {interviewVideos.map((videoUrl, index) => {
                             const videoId = getYouTubeId(videoUrl);
