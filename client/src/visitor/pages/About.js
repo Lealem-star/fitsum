@@ -65,12 +65,6 @@ const About = () => {
         'https://youtu.be/Er2GZUuQ70U?si=YfyYlZ5CWjwR4VRS',
     ];
 
-    // TV Show YouTube links
-    const tvShowVideos = [
-        'https://youtu.be/LbH-iVmfYvU?si=_044SVDRd6MVSLzx',
-        'https://youtu.be/Nm5feveKsNo?si=KovFYG0LYu-SIyWm',
-    ];
-
     return (
         <div className="w-full relative">
             <style>{`
