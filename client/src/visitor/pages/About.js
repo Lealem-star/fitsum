@@ -108,26 +108,20 @@ const About = () => {
 
                         {/* Right: Text Content */}
                         <div className="space-y-6 text-black">
-                            <div>
-                                <p className="text-sm uppercase tracking-wider text-black mb-2">Personal Development Trainer & Motivational Speaker</p>
-                                <h1 className="text-4xl md:text-5xl font-bold mb-6">Fitsum Fiseha</h1>
-                                <h2 className="text-2xl md:text-3xl font-bold mb-6 text-black">
-                                    Empowering Lives Through Personal Development and Motivational Speaking
-                                </h2>
-                            </div>
-
-                            <div className="space-y-4 text-lg leading-relaxed text-black">
-                                <p>
-                                    As a personal development trainer and motivational speaker, I am dedicated to empowering individuals to unlock their full potential and achieve their dreams. My journey in personal development began with a deep passion for helping others overcome challenges, build confidence, and create meaningful change in their lives.
+                            <div className="space-y-4">
+                                <h1 className="text-4xl md:text-5xl font-bold mb-6">I'm Fitsum Fiseha</h1>
+                                <p className="text-lg text-black leading-relaxed">
+                                    I a personal development trainer, motivational speaker, and creator dedicated to helping people discover their strength, purpose, and potential. My mission is to inspire individuals to overcome self-doubt, build confidence, and take meaningful steps toward a better future.
                                 </p>
-
-                                <p>
-                                    Through transformative workshops, one-on-one coaching, and powerful motivational speeches, I guide people on their path to self-discovery and growth. My approach combines practical strategies with inspirational insights, creating an environment where transformation is not just possible—it's inevitable.
+                                <p className="text-lg text-black leading-relaxed">
+                                    Through training programs, motivational speaking, and transformative initiatives, I create spaces where growth becomes possible and voices are empowered. I believe every person has unique value, hidden ability, and the power to create positive change when given the right guidance and opportunity.
                                 </p>
-
-
-
-
+                                <p className="text-lg text-black leading-relaxed">
+                                    I am also the founder of አንቂ አንደበቶች, a platform created to inspire self-expression, confidence, and leadership through the art of speaking.
+                                </p>
+                                <p className="text-lg text-black leading-relaxed">
+                                    My journey is built on one belief: when people change their mindset, they can change their lives.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -135,40 +129,71 @@ const About = () => {
             </section>
 
             {/* Personal Development Training Section */}
-            <section className="py-16 px-5 mx-4 mb-6 relative overflow-hidden">
+            <section className="py-16 px-5 mx-4 mb-8 relative overflow-hidden">
                 <AnimatedIcon icon="stage" className="top-8 left-8" delay={0.5} />
                 <AnimatedIcon icon="spotlight" className="top-8 right-8" delay={1.5} />
                 <div className="max-w-6xl mx-auto relative z-10">
-                    <h2 className="text-4xl font-bold text-black mb-8 text-center">Personal Development Training</h2>
-                    <div className="grid md:grid-cols-2 gap-8 items-center">
-                        <div className="space-y-4">
-                            <p className="text-lg text-black leading-relaxed">
-                                As a personal development trainer, I design comprehensive programs that help individuals unlock their potential, build confidence, and achieve their goals. My training approach combines proven methodologies with personalized coaching to create transformative experiences.
-                            </p>
-                            <p className="text-lg text-black leading-relaxed">
+                    <div className="grid md:grid-cols-2 gap-12 items-start">
+                        <div className="space-y-6 text-black">
+                            <div className="space-y-4">
+                                <h1 className="text-2xl md:text-3xl font-bold mb-6">As a personal development trainer</h1>
+                                <p className="text-lg text-black leading-relaxed">
+                                I design comprehensive programs that help individuals unlock their potential, build confidence, and achieve their goals. My training approach combines proven methodologies with personalized coaching to create transformative experiences.
+                                </p>
+                                <p className="text-lg text-black leading-relaxed">
                                 Through interactive workshops, I guide participants in developing essential life skills including goal setting, time management, emotional intelligence, and leadership capabilities. My philosophy centers on creating a supportive environment where growth is celebrated and every individual is empowered to reach their highest potential.
-                            </p>
-                            <p className="text-lg text-black leading-relaxed">
+                                </p>
+                                <p className="text-lg text-black leading-relaxed">
                                 Whether working with individuals or groups, I focus on practical, actionable strategies that can be immediately applied to create positive change in both personal and professional lives.
-                            </p>
+                                </p>
+                            </div>
                         </div>
-                        <div className="relative overflow-hidden">
-                            <img
-                                src={portraitPrimary}
-                                alt="Fitsum Fiseha personal development training"
-                                className="w-full h-full object-cover"
-                            />
+                        <div className="flex justify-center md:justify-end">
+                            <div className="relative overflow-hidden w-full max-w-md">
+                                <img
+                                    src={portraitPrimary}
+                                    alt="Fitsum Fiseha personal development training"
+                                    className="w-full h-auto object-cover"
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* አንቂ አንደበቶች Competition Section */}
-            <section className="py-16 px-5 text-black mx-4 mb-6 relative overflow-hidden">
+            {/* Motivational Speaking Section */}
+            <section className="py-16 px-5 mx-4 mb-8 relative overflow-hidden">
+                <AnimatedIcon icon="camera" className="top-24 left-24" delay={2} />
+                <AnimatedIcon icon="stage" className="bottom-24 right-24" delay={3.6} />
+                <div className="max-w-6xl mx-auto relative z-10">
+                    <div className="grid md:grid-cols-2 gap-12 items-start mb-8">
+                        <div className="flex justify-center md:justify-start">
+                            <div className="relative overflow-hidden w-full max-w-md">
+                                <img
+                                    src={portraitSecondary}
+                                    alt="Fitsum Fiseha motivational speaking"
+                                    className="w-full h-auto object-cover"
+                                />
+                            </div>
+                        </div>
+                        <div className="space-y-6 text-black">
+                            <div className="space-y-4">
+                                <h1 className="text-2xl md:text-3xl font-bold mb-6">As a motivational speaker</h1>
+                                <p className="text-lg text-black leading-relaxed">
+                                    I deliver powerful messages that inspire, empower, and transform. Through dynamic presentations, I connect with audiences on a deep level, sharing insights and strategies that help individuals overcome obstacles, achieve their goals, and create lasting positive change in their lives.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+       
+                </div>
+            </section>
+
+                        {/* አንቂ አንደበቶች Competition Section */}
+                        <section className="py-16 px-5 text-black mx-4 mb-6 relative overflow-hidden">
                 <AnimatedIcon icon="spotlight" className="top-20 left-20" delay={1.6} />
                 <AnimatedIcon icon="clapperboard" className="bottom-20 right-20" delay={3.2} />
                 <div className="max-w-6xl mx-auto relative z-10">
-                    <h2 className="text-4xl font-bold mb-8 text-center">አንቂ አንደበቶች - The First Ethiopian Motivational Speech Competition</h2>
                     <div className="grid md:grid-cols-2 gap-8 items-center">
                         <div className="relative overflow-hidden">
                             <img
@@ -178,6 +203,7 @@ const About = () => {
                             />
                         </div>
                         <div className="space-y-4">
+                        <h1 className="text-2xl md:text-3xl font-bold mb-6">As a founder of አንቂ አንደበቶች</h1>
                             <p className="text-lg text-black leading-relaxed">
                                 I am the proud creator and organizer of "አንቂ አንደበቶች" (Anki Andebetoch), the first Ethiopian motivational speech competition. This groundbreaking initiative was born from my vision to create a platform where aspiring speakers can share their stories, inspire others, and develop their public speaking skills.
                             </p>
@@ -192,40 +218,6 @@ const About = () => {
                 </div>
             </section>
 
-            {/* Motivational Speaking Section */}
-            <section className="py-16 px-5 mx-4 mb-6 relative overflow-hidden">
-                <AnimatedIcon icon="camera" className="top-24 left-24" delay={2} />
-                <AnimatedIcon icon="stage" className="bottom-24 right-24" delay={3.6} />
-                <div className="max-w-6xl mx-auto relative z-10">
-                    <h2 className="text-4xl font-bold text-black mb-8 text-center">Motivational Speaking</h2>
-                    <div className="space-y-6 mb-8">
-                        <p className="text-lg text-black leading-relaxed text-center max-w-3xl mx-auto">
-                            As a motivational speaker, I deliver powerful messages that inspire, empower, and transform. Through dynamic presentations, I connect with audiences on a deep level, sharing insights and strategies that help individuals overcome obstacles, achieve their goals, and create lasting positive change in their lives.
-                        </p>
-                    </div>
-                    <div className="grid md:grid-cols-3 gap-6">
-                        {tvShowVideos.map((videoUrl, index) => {
-                            const videoId = getYouTubeId(videoUrl);
-                            if (!videoId) return null;
-                            return (
-                                <div key={index} className="relative overflow-hidden bg-black">
-                                    <div className="relative w-full pb-[56.25%]">
-                                        <iframe
-                                            title={`Motivational Speech Video ${index + 1}`}
-                                            src={`https://www.youtube.com/embed/${videoId}`}
-                                            className="absolute inset-0 w-full h-full"
-                                            frameBorder="0"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                            allowFullScreen
-                                        />
-                                    </div>
-                                </div>
-                            );
-                        })}
-                    </div>
-                </div>
-            </section>
-
             {/* My Interviews Section */}
             <section className="py-16 px-5 text-black mx-4 mb-6 relative overflow-hidden">
                 <AnimatedIcon icon="film" className="top-28 left-28" delay={2.4} />
@@ -233,13 +225,7 @@ const About = () => {
                 <AnimatedIcon icon="spotlight" className="top-1/2 left-8" delay={1.8} />
                 <div className="max-w-6xl mx-auto relative z-10">
                     <h2 className="text-4xl font-bold mb-8 text-center">My Interviews</h2>
-                    <div className="space-y-6 mb-8">
-                        <p className="text-lg text-black leading-relaxed text-center max-w-3xl mx-auto">
-                            Conversations about personal development, motivation, and empowerment. These interviews explore
-                            my journey as a trainer and motivational speaker, sharing insights on personal growth, the creation of "አንቂ አንደበቶች", and the stories behind inspiring transformation.
-                        </p>
-                    </div>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
                         {interviewVideos.map((videoUrl, index) => {
                             const videoId = getYouTubeId(videoUrl);
                             if (!videoId) return null;
@@ -258,6 +244,21 @@ const About = () => {
                                 </div>
                             );
                         })}
+                    </div>
+                    <div className="mt-10 flex justify-center">
+                        <a
+                            href="https://www.youtube.com/channel/UCNvHCa5hbWucXiYSuxFlqpw?sub_confirmation=1"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 rounded-full bg-amber-400 px-6 py-3 text-sm font-bold text-black transition hover:bg-amber-300"
+                        >
+                            More Videos
+                            <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-black text-amber-300">
+                                <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                            </span>
+                        </a>
                     </div>
                 </div>
             </section>
