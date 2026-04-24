@@ -1,6 +1,9 @@
 import React from 'react';
 import portraitPrimary from '../../assets/fitsum.png';
 import portraitSecondary from '../../assets/service.png';
+import portraitThird from '../../assets/hear.png';
+import portraitFourth from '../../assets/speech.png';
+
 
 // Animated Movie & Theatre Icons Component
 const AnimatedIcon = ({ icon, className = '', delay = 0 }) => {
@@ -145,7 +148,7 @@ const About = () => {
                         <div className="flex justify-center md:justify-end">
                             <div className="relative overflow-hidden w-full max-w-md">
                                 <img
-                                    src={portraitPrimary}
+                                    src={portraitThird}
                                     alt="Fitsum Fiseha personal development training"
                                     className="w-full h-auto object-cover"
                                 />
@@ -176,6 +179,24 @@ const About = () => {
                                 <p className="text-lg text-black leading-relaxed">
                                     I deliver powerful messages that inspire, empower, and transform. Through dynamic presentations, I connect with audiences on a deep level, sharing insights and strategies that help individuals overcome obstacles, achieve their goals, and create lasting positive change in their lives.
                                 </p>
+                                <div className="flex flex-wrap items-center gap-4 pt-2">
+                                    <a
+                                        href="https://www.youtube.com/channel/UCNvHCa5hbWucXiYSuxFlqpw?sub_confirmation=1"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 rounded-full bg-amber-400 px-6 py-3 text-sm font-bold text-black transition hover:bg-amber-300"
+                                    >
+                                        Watch Motivational Videos
+                                    </a>
+                                    <a
+                                        href="https://www.youtube.com/channel/UCNvHCa5hbWucXiYSuxFlqpw?sub_confirmation=1"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 rounded-full border border-amber-400 px-6 py-3 text-sm font-bold text-black transition hover:bg-amber-50"
+                                    >
+                                        Hear Motivational Talks
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -191,7 +212,7 @@ const About = () => {
                     <div className="grid md:grid-cols-2 gap-8 items-center">
                         <div className="relative overflow-hidden">
                             <img
-                                src={portraitSecondary}
+                                src={portraitFourth}
                                 alt="አንቂ አንደበቶች competition"
                                 className="w-full h-full object-cover"
                             />
