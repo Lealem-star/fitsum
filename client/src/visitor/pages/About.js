@@ -1,6 +1,6 @@
 import React from 'react';
 import portraitPrimary from '../../assets/fitsum.png';
-import portraitSecondary from '../../assets/fitsum3.png';
+import portraitSecondary from '../../assets/service.png';
 
 // Animated Movie & Theatre Icons Component
 const AnimatedIcon = ({ icon, className = '', delay = 0 }) => {

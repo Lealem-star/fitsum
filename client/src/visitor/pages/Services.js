@@ -4,7 +4,7 @@ import avatarOne from '../../assets/fitsum.png';
 import avatarTwo from '../../assets/fitsum3.png';
 import avatarThree from '../../assets/invite.png';
 import avatarFour from '../../assets/invite1.png';
-import avatarFive from '../../assets/niku.jpg';
+import avatarFive from '../../assets/niku-removebg-preview.png';
 
 const Services = () => {
     const audienceAvatars = [avatarOne, avatarTwo, avatarThree, avatarFour, avatarFive];
