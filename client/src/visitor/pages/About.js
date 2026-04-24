@@ -84,6 +84,42 @@ const About = () => {
             <div className="text-center pt-8 pb-2">
                 <h1 className="text-4xl sm:text-5xl font-extrabold text-white">Who am I ?</h1>
             </div>
+            <div className="flex justify-center gap-6 pb-8">
+                <a
+                    href="https://www.instagram.com/fitsumfisehatrainer_/?hl=en"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                    className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-white/20 bg-black/20 text-white transition hover:scale-105 hover:border-white/40"
+                >
+                    <svg viewBox="0 0 24 24" className="h-2 w-2 fill-current">
+                        <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5z" />
+                        <path d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4zM17.5 6.2a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6z" />
+                    </svg>
+                </a>
+                <a
+                    href="https://www.tiktok.com/@fitsumtrainer1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="TikTok"
+                    className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-white/20 bg-black/20 text-white transition hover:scale-105 hover:border-white/40"
+                >
+                    <svg viewBox="0 0 24 24" className="h-2 w-2 fill-current">
+                        <path d="M14.2 3.4c.8 1.8 2.2 3 4.2 3.1v3a7.2 7.2 0 0 1-4.2-1.4v6.4a5.6 5.6 0 1 1-5.6-5.6c.3 0 .6 0 .9.1v3.1a2.5 2.5 0 1 0 1.6 2.4V3.4h3.1z" />
+                    </svg>
+                </a>
+                <a
+                    href="https://www.youtube.com/channel/UCNvHCa5hbWucXiYSuxFlqpw"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="YouTube"
+                    className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-white/20 bg-black/20 text-white transition hover:scale-105 hover:border-white/40"
+                >
+                    <svg viewBox="0 0 24 24" className="h-2 w-2 fill-current">
+                        <path d="M22 12c0-2.1-.2-3.6-.6-4.5a2.9 2.9 0 0 0-1.7-1.7C18.8 5.4 17.3 5.2 12 5.2s-6.8.2-7.7.6a2.9 2.9 0 0 0-1.7 1.7C2.2 8.4 2 9.9 2 12s.2 3.6.6 4.5a2.9 2.9 0 0 0 1.7 1.7c.9.4 2.4.6 7.7.6s6.8-.2 7.7-.6a2.9 2.9 0 0 0 1.7-1.7c.4-.9.6-2.4.6-4.5zM10 15.5v-7l6 3.5-6 3.5z" />
+                    </svg>
+                </a>
+            </div>
 
             {/* Hero Image Section */}
             <section className="py-16 px-5 mx-4 mb-8 relative overflow-hidden">
