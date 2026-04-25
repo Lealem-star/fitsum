@@ -626,10 +626,10 @@ const Home = () => {
       {/* let's add sponsor section here */}
       <section className="w-full px-4 sm:px-6 lg:px-8 mb-12">
         <div className="max-w-7xl mx-auto rounded-2xl py-10 sm:py-12 px-4 sm:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-white">
-            <span className="text-yellow-400">Become a Sponsor</span> and grow with Wechew Good!
+          <h2 className="text-3xl sm:text-3xl lg:text-4xl font-extrabold leading-tight text-white">
+            <span className="text-yellow-400">Become a Sponsor</span> and grow with Niku Podcast!
           </h2>
-          <p className="mt-5 max-w-3xl mx-auto text-base sm:text-lg text-gray-300 leading-relaxed">
+          <p className="mt-5 max-w-3xl mx-auto text-base sm:text-lg text-black-300 leading-relaxed">
             Partner with Ethiopia&apos;s most vibrant podcast to reach a passionate, engaged audience.
             Let&apos;s create impact together.
           </p>
