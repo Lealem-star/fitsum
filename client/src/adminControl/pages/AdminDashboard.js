@@ -169,9 +169,7 @@ const AdminDashboard = () => {
             <div className="p-6 border-b border-white/10">
             <div className="flex items-center justify-between mb-4">
               <div>
-                <p className="text-xs uppercase tracking-[0.4em] text-gray-300">Mahlet Studio</p>
-                <h2 className="text-2xl font-semibold text-white mt-2">Admin Hub</h2>
-                <p className="text-sm text-gray-300 mt-1">Curate every experience.</p>
+                <p className="text-xs uppercase tracking-[0.4em] text-gray-300">Fitsum Studio</p>
               </div>
               <button
                 onClick={closeMobileMenu}
@@ -299,9 +297,8 @@ const AdminDashboard = () => {
         <aside className="hidden lg:flex w-72 bg-gradient-to-b from-[#071022] to-[#071427] text-white rounded-2xl shadow-2xl flex-col justify-between" style={{ border: '3px solid rgba(97,218,251,0.12)' }}>
           <div className="p-6 space-y-6">
             <div>
-              <p className="text-xs uppercase tracking-[0.4em] text-gray-300">Mahlet Studio</p>
-              <h2 className="text-2xl font-semibold text-white mt-2">Admin Hub</h2>
-              <p className="text-sm text-gray-300 mt-1">Curate every experience.</p>
+              <p className="text-xs uppercase tracking-[0.4em] text-gray-300">Fitsum Studio</p>
+              
             </div>
             <nav className="space-y-3">
               {navItems.map((item) => {
