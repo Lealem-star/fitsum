@@ -408,28 +408,8 @@ const AdminDashboard = () => {
             <div>
               <p className="text-sm text-gray-500">Welcome back</p>
               <h1 className="text-3xl font-semibold text-gray-900">Hi {user?.name || 'Admin'}, let's build.</h1>
-              <p className="text-base text-gray-600 mt-1">Select a panel to start managing content.</p>
             </div>
             <div className="flex items-center gap-3">
-              <div className="flex flex-wrap gap-3">
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => {
-                    setActiveTab(item.id);
-                    if (item.subTabs && item.subTabs.length > 0) {
-                      setActiveSubTab(item.subTabs[0].id);
-                    }
-                  }}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition ${activeTab === item.id
-                    ? 'bg-[#61dafb] text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                    }`}
-                >
-                  {item.label}
-                </button>
-              ))}
-              </div>
               <button
                 aria-label="View messages"
                 className="relative w-10 h-10 flex items-center justify-center rounded-full bg-white/80 hover:bg-white"
