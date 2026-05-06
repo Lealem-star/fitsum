@@ -7,6 +7,7 @@ import VideoManager from '../comp/VideoManager';
 import SubscriberManager from '../comp/SubscriberManager';
 import LatestPostManager from '../comp/LatestPostManager';
 import ContactMessagesManager from '../comp/ContactMessagesManager';
+import SponsorContactManager from '../comp/SponsorContactManager';
 import AdminManager from '../comp/AdminManager';
 import { AuthContext } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
@@ -16,6 +17,8 @@ const navItems = [
   {
     id: 'headerpost',
     label: 'HeaderPost',
+    icon: 'media',
+    section: 'main',
     description: 'Upload header poster images and videos.',
     subTabs: [
       { id: 'images', label: 'Images' },
@@ -25,16 +28,22 @@ const navItems = [
   {
     id: 'homehero',
     label: 'Home Hero',
+    icon: 'home',
+    section: 'main',
     description: 'Upload images for the home page hero section.',
   },
   {
     id: 'latest',
-    label: 'Latest',
-    description: 'Upload and manage latest posts.',
+    label: 'Videos',
+    icon: 'latest',
+    section: 'main',
+    description: 'Upload and manage YouTube videos.',
   },
   {
     id: 'myfan',
     label: 'MyFan',
+    icon: 'fan',
+    section: 'community',
     description: 'Manage user messages and mailing list.',
     subTabs: [
       { id: 'subscribers', label: 'Mailing List' },
@@ -42,11 +51,72 @@ const navItems = [
     ],
   },
   {
+    id: 'sponsors',
+    label: 'Sponsors',
+    icon: 'sponsor',
+    section: 'community',
+    description: 'Manage sponsor contacts from home page.',
+  },
+  {
     id: 'admins',
     label: 'Admins',
+    icon: 'admins',
+    section: 'system',
     description: 'Create and manage admin accounts.',
   },
 ];
+
+const navSections = [
+  { id: 'main', label: 'Main' },
+  { id: 'community', label: 'Community' },
+  { id: 'system', label: 'System' },
+];
+
+const IconBadge = ({ icon, active }) => {
+  const iconClass = active ? 'text-blue-400' : 'text-slate-400';
+
+  if (icon === 'media') {
+    return (
+      <svg className={`w-4 h-4 ${iconClass}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M4 7h16M4 17h10M14 14l6 3-6 3v-6zM6 4h12a2 2 0 012 2v6H4V6a2 2 0 012-2z" />
+      </svg>
+    );
+  }
+  if (icon === 'home') {
+    return (
+      <svg className={`w-4 h-4 ${iconClass}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 11.5L12 4l9 7.5M6.5 10.5V20h11v-9.5" />
+      </svg>
+    );
+  }
+  if (icon === 'latest') {
+    return (
+      <svg className={`w-4 h-4 ${iconClass}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M12 8v4l2.5 2.5M21 12a9 9 0 11-2.64-6.36" />
+      </svg>
+    );
+  }
+  if (icon === 'fan') {
+    return (
+      <svg className={`w-4 h-4 ${iconClass}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M16 11a4 4 0 10-8 0m8 0a4 4 0 014 4v1H4v-1a4 4 0 014-4m8 0v-1a4 4 0 10-8 0v1" />
+      </svg>
+    );
+  }
+  if (icon === 'sponsor') {
+    return (
+      <svg className={`w-4 h-4 ${iconClass}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M6 10V7a2 2 0 012-2h8a2 2 0 012 2v3m-1 10H7a2 2 0 01-2-2v-8h14v8a2 2 0 01-2 2zM9 14h6" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg className={`w-4 h-4 ${iconClass}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M12 2l7 3v6c0 5-3.5 9.5-7 11-3.5-1.5-7-6-7-11V5l7-3z" />
+    </svg>
+  );
+};
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('headerpost');
@@ -159,10 +229,10 @@ const AdminDashboard = () => {
 
       {/* Mobile Sidebar */}
       <aside
-        className={`fixed top-0 left-0 h-full w-80 bg-gradient-to-b from-[#071022] to-[#071427] text-white backdrop-blur-sm shadow-2xl z-[999] transform transition-transform duration-300 ease-in-out lg:hidden flex flex-col ${
+        className={`fixed top-0 left-0 h-full w-80 bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white backdrop-blur-sm shadow-2xl z-[999] transform transition-transform duration-300 ease-in-out lg:hidden flex flex-col ${
           isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
-        style={{ borderRight: '4px solid rgba(97,218,251,0.18)' }}
+        style={{ borderRight: '3px solid rgba(34,211,238,0.24)' }}
       >
         <div className="flex flex-col h-full">
             <div className="p-6 border-b border-white/10">
@@ -182,55 +252,66 @@ const AdminDashboard = () => {
             </div>
           </div>
 
-          <div className="flex-1 overflow-y-auto p-6 space-y-3">
-            <nav className="space-y-3">
-              {navItems.map((item) => {
-                const isActive = activeTab === item.id;
-                return (
-                  <div key={item.id}>
-                    <button
-                      onClick={() => {
-                        setActiveTab(item.id);
-                        if (item.subTabs && item.subTabs.length > 0) {
-                          setActiveSubTab(item.subTabs[0].id);
-                        }
-                        closeMobileMenu();
-                      }}
-                      className={`w-full text-left px-4 py-3 rounded-xl border transition-all duration-300 ${isActive
-                        ? 'bg-[#61dafb] border-[#61dafb] text-[#06283D] shadow-lg shadow-[#61dafb]/30'
-                        : 'border-transparent text-gray-300 hover:border-[#61dafb]/30 hover:bg-white/10'
-                        }`}
-                    >
-                      <p className="font-semibold">{item.label}</p>
-                      <p className="text-xs mt-1 opacity-80 text-gray-300">{item.description}</p>
-                    </button>
-                    {isActive && item.subTabs && item.subTabs.length > 0 && (
-                      <div className="mt-2 ml-4 space-y-2">
-                        {item.subTabs.map((subTab) => (
+          <div className="flex-1 overflow-y-auto p-6 space-y-6">
+            <nav className="space-y-5">
+              {navSections.map((section) => (
+                <div key={section.id}>
+                  <p className="text-[11px] uppercase tracking-[0.14em] text-slate-400 mb-2 px-2">{section.label}</p>
+                  <div className="space-y-1">
+                    {navItems.filter((item) => item.section === section.id).map((item) => {
+                      const isActive = activeTab === item.id;
+                      return (
+                        <div key={item.id}>
                           <button
-                            key={subTab.id}
                             onClick={() => {
-                              setActiveSubTab(subTab.id);
+                              setActiveTab(item.id);
+                              if (item.subTabs && item.subTabs.length > 0) {
+                                setActiveSubTab(item.subTabs[0].id);
+                              }
                               closeMobileMenu();
                             }}
-                            className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-all duration-300 ${activeSubTab === subTab.id
-                                ? 'bg-[#61dafb]/20 text-[#61dafb] font-medium border border-[#61dafb]/30'
-                                : 'text-gray-300 hover:bg-white/10'
-                              }`}
+                            className={`group w-full text-left px-3 py-2.5 rounded-xl transition-all duration-200 relative border-l-2 ${
+                              isActive
+                                ? 'bg-blue-500/12 border-blue-500 text-slate-100 shadow-[0_0_12px_rgba(59,130,246,0.4)]'
+                                : 'border-transparent text-slate-200 hover:bg-white/5 hover:translate-x-1'
+                            }`}
                           >
-                            {subTab.label}
-                            {subTab.id === 'messages' && unreadMessageCount > 0 && (
-                                <span className="ml-2 inline-flex items-center justify-center px-2 py-0.5 text-xs font-semibold leading-none text-white bg-red-600 rounded-full">
-                                    {unreadMessageCount}
-                                </span>
-                            )}
+                            <div className="flex items-center gap-2.5">
+                              <IconBadge icon={item.icon} active={isActive} />
+                              <p className="font-medium">{item.label}</p>
+                            </div>
                           </button>
-                        ))}
-                      </div>
-                    )}
+                          {isActive && item.subTabs && item.subTabs.length > 0 && (
+                            <div className="mt-1 ml-8 space-y-1">
+                              {item.subTabs.map((subTab) => (
+                                <button
+                                  key={subTab.id}
+                                  onClick={() => {
+                                    setActiveSubTab(subTab.id);
+                                    closeMobileMenu();
+                                  }}
+                                  className={`w-full text-left px-2 py-1 rounded-md text-sm transition ${
+                                    activeSubTab === subTab.id
+                                      ? 'text-cyan-300'
+                                      : 'text-slate-300 hover:text-slate-100'
+                                  }`}
+                                >
+                                  • {subTab.label}
+                                  {subTab.id === 'messages' && unreadMessageCount > 0 && (
+                                    <span className="ml-2 inline-flex items-center justify-center px-1.5 py-0.5 text-[10px] font-semibold leading-none text-white bg-red-600 rounded-full">
+                                      {unreadMessageCount}
+                                    </span>
+                                  )}
+                                </button>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
                   </div>
-                );
-              })}
+                </div>
+              ))}
             </nav>
           </div>
 
@@ -293,56 +374,67 @@ const AdminDashboard = () => {
 
       <div className="relative z-10 flex flex-col lg:flex-row gap-6">
         {/* Desktop Sidebar */}
-        <aside className="hidden lg:flex w-72 bg-gradient-to-b from-[#071022] to-[#071427] text-white rounded-2xl shadow-2xl flex-col justify-between" style={{ border: '3px solid rgba(97,218,251,0.12)' }}>
+        <aside className="hidden lg:flex w-72 bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white rounded-2xl shadow-2xl flex-col justify-between" style={{ border: '3px solid rgba(34,211,238,0.2)' }}>
           <div className="p-6 space-y-6">
             <div>
               <p className="text-xs uppercase tracking-[0.4em] text-gray-300">Fitsum Studio</p>
               
             </div>
-            <nav className="space-y-3">
-              {navItems.map((item) => {
-                const isActive = activeTab === item.id;
-                return (
-                  <div key={item.id}>
-                    <button
-                      onClick={() => {
-                        setActiveTab(item.id);
-                        if (item.subTabs && item.subTabs.length > 0) {
-                          setActiveSubTab(item.subTabs[0].id);
-                        }
-                      }}
-                      className={`w-full text-left px-4 py-3 rounded-xl border transition-all duration-300 ${isActive
-                        ? 'bg-[#61dafb] border-[#61dafb] text-[#06283D] shadow-lg shadow-[#61dafb]/30'
-                        : 'border-transparent text-gray-300 hover:border-[#61dafb]/30 hover:bg-white/10'
-                        }`}
-                    >
-                      <p className="font-semibold">{item.label}</p>
-                      <p className="text-xs mt-1 opacity-80 text-gray-300">{item.description}</p>
-                    </button>
-                    {isActive && item.subTabs && item.subTabs.length > 0 && (
-                      <div className="mt-2 ml-4 space-y-2">
-                        {item.subTabs.map((subTab) => (
+            <nav className="space-y-5">
+              {navSections.map((section) => (
+                <div key={section.id}>
+                  <p className="text-[11px] uppercase tracking-[0.14em] text-slate-400 mb-2 px-2">{section.label}</p>
+                  <div className="space-y-1">
+                    {navItems.filter((item) => item.section === section.id).map((item) => {
+                      const isActive = activeTab === item.id;
+                      return (
+                        <div key={item.id}>
                           <button
-                            key={subTab.id}
-                            onClick={() => setActiveSubTab(subTab.id)}
-                            className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-all duration-300 ${activeSubTab === subTab.id
-                                ? 'bg-[#61dafb]/20 text-[#61dafb] font-medium border border-[#61dafb]/30'
-                                : 'text-gray-300 hover:bg-white/10'
-                              }`}
+                            onClick={() => {
+                              setActiveTab(item.id);
+                              if (item.subTabs && item.subTabs.length > 0) {
+                                setActiveSubTab(item.subTabs[0].id);
+                              }
+                            }}
+                            className={`group w-full text-left px-3 py-2.5 rounded-xl transition-all duration-200 relative border-l-2 ${
+                              isActive
+                                ? 'bg-blue-500/12 border-blue-500 text-slate-100 shadow-[0_0_12px_rgba(59,130,246,0.4)]'
+                                : 'border-transparent text-slate-200 hover:bg-white/5 hover:translate-x-1'
+                            }`}
                           >
-                            {subTab.label}
-                            {subTab.id === 'messages' && unreadMessageCount > 0 && (
-                                <span className="ml-2 inline-flex items-center justify-center px-2 py-0.5 text-xs font-semibold leading-none text-white bg-red-600 rounded-full">
-                                    {unreadMessageCount}
-                                </span>
-                            )}
+                            <div className="flex items-center gap-2.5">
+                              <IconBadge icon={item.icon} active={isActive} />
+                              <p className="font-medium">{item.label}</p>
+                            </div>
                           </button>
-                        ))}
-                      </div>
-                    )}
+                          {isActive && item.subTabs && item.subTabs.length > 0 && (
+                            <div className="mt-1 ml-8 space-y-1">
+                              {item.subTabs.map((subTab) => (
+                                <button
+                                  key={subTab.id}
+                                  onClick={() => setActiveSubTab(subTab.id)}
+                                  className={`w-full text-left px-2 py-1 rounded-md text-sm transition ${
+                                    activeSubTab === subTab.id
+                                      ? 'text-cyan-300'
+                                      : 'text-slate-300 hover:text-slate-100'
+                                  }`}
+                                >
+                                  • {subTab.label}
+                                  {subTab.id === 'messages' && unreadMessageCount > 0 && (
+                                    <span className="ml-2 inline-flex items-center justify-center px-1.5 py-0.5 text-[10px] font-semibold leading-none text-white bg-red-600 rounded-full">
+                                      {unreadMessageCount}
+                                    </span>
+                                  )}
+                                </button>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
                   </div>
-                );
-              })}
+                </div>
+              ))}
             </nav>
           </div>
           <div className="p-6 border-t border-white/10 bg-transparent rounded-b-2xl">
@@ -406,8 +498,10 @@ const AdminDashboard = () => {
           {/* Desktop Header - Hidden on Mobile */}
           <header className="hidden lg:flex lg:flex-row lg:items-center lg:justify-between bg-white bg-opacity-95 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/30 p-6">
             <div>
-              <p className="text-sm text-gray-500">Welcome back</p>
-              <h1 className="text-3xl font-semibold text-gray-900">Hi {user?.name || 'Admin'}, let's build.</h1>
+              <p className="text-xs uppercase tracking-[0.2em] text-slate-500">Welcome back</p>
+              <h1 className="text-4xl font-extrabold leading-tight bg-gradient-to-r from-cyan-600 via-blue-600 to-violet-600 bg-clip-text text-transparent">
+                Hi {user?.name || 'Admin'}, let's build.
+              </h1>
             </div>
             <div className="flex items-center gap-3">
               <button
@@ -429,7 +523,7 @@ const AdminDashboard = () => {
             </div>
           </header>
 
-          <section className="bg-white bg-opacity-95 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/30 p-6">
+          <section className="bg-white/95 backdrop-blur-sm rounded-[20px] shadow-[0_20px_40px_rgba(15,23,42,0.12)] border border-white/70 p-6">
             {activeTab === 'headerpost' && (
               <>
                 {activeSubTab === 'images' && <ImageManager />}
@@ -444,6 +538,7 @@ const AdminDashboard = () => {
                 {activeSubTab === 'messages' && <ContactMessagesManager />}
               </>
             )}
+            {activeTab === 'sponsors' && <SponsorContactManager />}
             {activeTab === 'admins' && <AdminManager />}
           </section>
         </main>

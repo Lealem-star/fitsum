@@ -78,14 +78,32 @@ const Home = () => {
 
   const getYouTubeEmbedUrl = (mediaUrl) => {
     if (!mediaUrl) return '';
-    const isFullUrl = mediaUrl.includes('youtube.com') || mediaUrl.includes('youtu.be');
-    const videoId = isFullUrl
-      ? mediaUrl
-        .replace(/.*v=/, '')
-        .replace(/.*be\//, '')
-        .split(/[?&]/)[0]
-      : mediaUrl;
-    return `https://www.youtube.com/embed/${videoId}`;
+    const value = String(mediaUrl).trim();
+    if (/^[a-zA-Z0-9_-]{11}$/.test(value)) {
+      return `https://www.youtube.com/embed/${value}`;
+    }
+
+    try {
+      const parsed = new URL(value);
+      const host = parsed.hostname.replace('www.', '');
+      let videoId = '';
+
+      if (host === 'youtu.be') {
+        videoId = parsed.pathname.split('/').filter(Boolean)[0] || '';
+      } else if (host.endsWith('youtube.com')) {
+        if (parsed.pathname.startsWith('/watch')) {
+          videoId = parsed.searchParams.get('v') || '';
+        } else if (parsed.pathname.startsWith('/shorts/')) {
+          videoId = parsed.pathname.split('/shorts/')[1]?.split('/')[0] || '';
+        } else if (parsed.pathname.startsWith('/embed/')) {
+          videoId = parsed.pathname.split('/embed/')[1]?.split('/')[0] || '';
+        }
+      }
+
+      return videoId ? `https://www.youtube.com/embed/${videoId}` : '';
+    } catch (err) {
+      return '';
+    }
   };
 
   const testimonials = [
@@ -581,6 +599,7 @@ const Home = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {youtubePosts.map((post) => {
                   const embedUrl = getYouTubeEmbedUrl(post.mediaUrl);
+                  if (!embedUrl) return null;
                   return (
                     <div
                       key={post.id || post._id}

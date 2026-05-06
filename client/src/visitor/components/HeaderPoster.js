@@ -18,25 +18,37 @@ const HeaderPoster = () => {
     // Helper function to convert YouTube URL to embed format
     const getYouTubeEmbedUrl = (url) => {
         if (!url) return '';
+        const embedParams = '?autoplay=1&loop=1&playlist={VIDEO_ID}&mute=1&controls=0&modestbranding=1&rel=0&playsinline=1&disablekb=1&iv_load_policy=3&fs=0';
+
+        const buildEmbedUrl = (videoId) => {
+            if (!videoId) return url;
+            return `https://www.youtube.com/embed/${videoId}${embedParams.replace('{VIDEO_ID}', videoId)}`;
+        };
 
         // Handle youtu.be short links
         if (url.includes('youtu.be/')) {
             const videoId = url.split('youtu.be/')[1].split('?')[0];
-            return `https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}&mute=1&controls=0&modestbranding=1&rel=0`;
+            return buildEmbedUrl(videoId);
+        }
+
+        // Handle youtube.com/shorts/{id} links
+        if (url.includes('youtube.com/shorts/')) {
+            const videoId = url.split('shorts/')[1]?.split(/[?&/]/)[0];
+            return buildEmbedUrl(videoId);
         }
 
         // Handle youtube.com/watch?v= links
         if (url.includes('youtube.com/watch')) {
             const videoId = url.split('v=')[1]?.split('&')[0];
             if (videoId) {
-                return `https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}&mute=1&controls=0&modestbranding=1&rel=0`;
+                return buildEmbedUrl(videoId);
             }
         }
 
         // Handle youtube.com/embed/ links (already in embed format)
         if (url.includes('youtube.com/embed/')) {
             const videoId = url.split('embed/')[1].split('?')[0];
-            return `https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}&mute=1&controls=0&modestbranding=1&rel=0`;
+            return buildEmbedUrl(videoId);
         }
 
         return url;
@@ -59,10 +71,11 @@ const HeaderPoster = () => {
                 <iframe
                     key={embedUrl}
                     src={embedUrl}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover pointer-events-none"
                     frameBorder="0"
                     allow="autoplay; encrypted-media"
                     allowFullScreen
+                    tabIndex={-1}
                     title={`${position} video`}
                     onError={() => {
                         console.error(`${position} YouTube video error`);
