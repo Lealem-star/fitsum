@@ -106,8 +106,7 @@ const AdminDashboard = () => {
   return (
     <React.Fragment>
       <div className="min-h-screen p-5 relative">
-
-      <div className="fixed inset-0 -z-10 bg-[#aec4fe]" aria-hidden />
+      
 
       {/* Mobile Top Bar - Menu Button and Welcome Section (Mobile Only) */}
       <div className="lg:hidden fixed top-0 left-0 right-0 z-[1000] bg-white bg-opacity-95 backdrop-blur-sm shadow-lg">

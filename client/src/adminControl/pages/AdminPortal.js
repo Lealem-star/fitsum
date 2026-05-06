@@ -48,9 +48,9 @@ const AdminPortal = () => {
 
   return (
     <>
-      <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(14,165,233,0.2),transparent_55%)]" aria-hidden />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.18),transparent_50%)]" aria-hidden />
+      <div className="min-h-screen relative overflow-hidden text-slate-900">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(14,165,233,0.18),transparent_55%)]" aria-hidden />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.14),transparent_50%)]" aria-hidden />
 
         <div className="relative z-10 px-4 sm:px-6 lg:px-12 py-6">
           <header className="max-w-7xl mx-auto flex items-center justify-between">
@@ -60,7 +60,7 @@ const AdminPortal = () => {
                 alt="Fitsum logo"
                 className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover ring-2 ring-cyan-400/60"
               />
-              <span className="text-sm sm:text-base font-semibold text-cyan-100">
+              <span className="text-sm sm:text-base font-semibold text-slate-900">
                 Fitsum Admin
               </span>
             </div>
@@ -68,7 +68,7 @@ const AdminPortal = () => {
             <div className="flex items-center gap-3 sm:gap-4">
               <Link
                 to="/"
-                className="text-sm sm:text-base font-medium text-slate-200 hover:text-white transition-colors"
+                className="text-sm sm:text-base font-medium text-slate-700 hover:text-slate-900 transition-colors"
               >
                 ← Back to Website
               </Link>
@@ -86,27 +86,27 @@ const AdminPortal = () => {
         <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pb-12 pt-4 lg:pt-8">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
             <section className="space-y-6">
-              <p className="inline-flex items-center rounded-full border border-cyan-300/30 bg-cyan-400/10 px-4 py-1.5 text-sm text-cyan-100">
+              <p className="inline-flex items-center rounded-full border border-cyan-500/30 bg-white/60 backdrop-blur-sm px-4 py-1.5 text-sm text-slate-800">
                 Fitsum Fiseha Administration
               </p>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
                 Welcome to the Admin Portal
               </h1>
-              <p className="text-base sm:text-lg text-slate-200 max-w-xl leading-relaxed">
+              <p className="text-base sm:text-lg text-slate-700 max-w-xl leading-relaxed">
                 Manage website content, review communication updates, and keep everything running smoothly from one place.
               </p>
 
               <div className="grid sm:grid-cols-3 gap-4 max-w-2xl">
-                <div className="bg-white/10 border border-white/15 rounded-lg p-4">
-                  <p className="text-sm text-slate-300">Access</p>
+                <div className="bg-white/70 backdrop-blur-sm border border-white/40 rounded-lg p-4 shadow-sm">
+                  <p className="text-sm text-slate-600">Access</p>
                   <p className="text-lg font-semibold">Secure Login</p>
                 </div>
-                <div className="bg-white/10 border border-white/15 rounded-lg p-4">
-                  <p className="text-sm text-slate-300">Management</p>
+                <div className="bg-white/70 backdrop-blur-sm border border-white/40 rounded-lg p-4 shadow-sm">
+                  <p className="text-sm text-slate-600">Management</p>
                   <p className="text-lg font-semibold">Content Control</p>
                 </div>
-                <div className="bg-white/10 border border-white/15 rounded-lg p-4">
-                  <p className="text-sm text-slate-300">Support</p>
+                <div className="bg-white/70 backdrop-blur-sm border border-white/40 rounded-lg p-4 shadow-sm">
+                  <p className="text-sm text-slate-600">Support</p>
                   <p className="text-lg font-semibold">Fanbase Emailing</p>
                 </div>
               </div>
@@ -114,24 +114,26 @@ const AdminPortal = () => {
               <button
                 type="button"
                 onClick={openLoginModal}
-                className="inline-flex items-center justify-center bg-white text-slate-900 font-semibold px-7 py-3 rounded-md hover:bg-slate-200 transition-colors duration-200"
+                className="inline-flex items-center justify-center bg-slate-900 text-white font-semibold px-7 py-3 rounded-md hover:bg-slate-800 transition-colors duration-200"
               >
                 Enter Admin Dashboard
               </button>
             </section>
 
             <section className="w-full">
-              <div className="relative overflow-hidden rounded-2xl bg-white/5">
+              <div className="relative ">
                 <img
                   src={fitsumImage}
                   alt="Fitsum Fiseha"
-                  className="w-full h-[460px] object-cover"
+                  className="w-full h-full"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent" />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/45 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <p className="text-sm text-slate-200">Admin Welcome Screen</p>
-                  <p className="text-2xl font-bold">Fitsum Fiseha</p>
+                  <p className="text-sm text-white/90">Admin Welcome Screen</p>
+                  <p className="text-2xl font-bold text-white">Fitsum Fiseha</p>
                 </div>
+
               </div>
             </section>
           </div>

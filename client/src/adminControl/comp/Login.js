@@ -34,7 +34,6 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative">
-      <div className="fixed inset-0 -z-10 bg-[#aec4fe]" aria-hidden />
       <div className="max-w-md w-full space-y-8 bg-white bg-opacity-95 backdrop-blur-sm p-8 rounded-lg shadow-xl relative z-10">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
