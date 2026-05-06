@@ -25,7 +25,7 @@ const ProtectedRoute = ({ children }) => {
     );
   }
 
-  return isAuthenticated ? children : <Navigate to="/admin-portal/login" />;
+  return isAuthenticated ? children : <Navigate to="/admin-portal" replace />;
 };
 
 // Layout component for pages with HeaderPoster and Nav
